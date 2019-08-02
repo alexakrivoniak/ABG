@@ -1,0 +1,353 @@
+.gardenMap {
+	height: 1200px;
+	width: 100%;
+	&.gardenMap--blur {
+		-webkit-filter: blur(5px);
+		filter: url('/snippets/blur.twig');
+		filter: blur(5px);
+		overflow: hidden;
+	}
+	@include respond-to($large-desktop) {
+		height: 1300px;
+	}
+	@include respond-to($medium-breakpoint) {
+		height: 750px;
+	}
+	@include respond-to($small-breakpoint) {
+		height: 500px;
+	}
+}
+.gardenMap-marker-label {
+	width: 50%;
+	max-width: 150px;
+	margin: 0 auto;
+	text-align: center;
+}
+.gardenMap .gmnoprint {
+	z-index: 5 !important;
+}
+.gardenMap .gmnoprint.gm-bundled-control.gm-bundled-control-on-bottom {
+	bottom: auto !important;
+	top: 200px !important;
+	left: 30px !important;
+	right: auto !important;
+	@include respond-to($small-breakpoint) {
+		top: 60px !important;
+		left: 15px !important;
+	}
+}
+
+.gardenMap-infoWindow {
+	position: absolute;
+	top: 200px;
+	background-color: white;
+	width: 600px;
+	max-width: 50%;
+	border: 1px solid #C4C4C4;
+	min-height: 600px;	
+	opacity: 0;
+	right: -100%;
+	z-index: 200;
+	@include transition(all 0.48s 0.48s);
+	&.open {
+		right: 0;
+		opacity: 1;
+	}
+	@include respond-to($medium-breakpoint) {
+		max-width: 70%;
+		min-height: 400px;
+		top: 180px;
+	}
+	@include respond-to($small-breakpoint) {
+		max-width: 100%;
+		top: 0;
+		height: 75%;
+	}
+}
+.gardenMap-infoWindow-wrapper {
+	padding: 80px 50px;
+	@include respond-to($medium-breakpoint) {
+		padding: 60px 30px 30px;
+	}
+	@include respond-to($small-breakpoint) {
+		padding: 60px 30px;
+	}
+}
+.gardenMap-infoWindow-img {
+	height: 300px;
+	width: 100%;
+	margin-bottom: 35px;
+	@include respond-to($medium-breakpoint) {
+		height: 150px;
+	}
+	@include respond-to($small-breakpoint) {
+		height: 120px;
+	}
+}
+.gardenMap-infoWindow-content {
+	& h2 {
+		padding-bottom: 40px;
+	}
+	& p {
+		padding-bottom: 30px;
+	}
+	& a {
+		font-size: 24px;
+		padding-right: 35px;
+		&:after {
+			width: 21px;
+			height: 21px;
+			right: 0.5em;
+		}
+		&:hover:after {
+			right: 0;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		& h2 {
+			padding-bottom: 20px;
+			font-size: 32px;
+		}
+		& p {
+			padding-bottom: 20px;
+		}
+		& a {
+			font-size: 20px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& h2 {
+			padding-bottom: 10px;
+			font-size: 26px;
+		}
+		& p {
+			padding-bottom: 30px;
+		}
+		& a {
+			font-size: 18px;
+			padding-right: 40px;
+		}
+	}
+}
+.gardenMap-infoWindow-btn {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	display: block;
+	cursor: pointer;
+}
+
+.gardenMap-filters {
+	position: absolute;
+	right: 0;
+	bottom: 50px;
+	width: 600px;
+	max-width: 50%;
+	z-index: 200;
+	padding: 20px;
+	& p {
+		font-family: $font-tradeCon;
+		text-align: right;
+		font-size: 16px;
+		padding-left: 15px;
+	}
+	@include respond-to($medium-breakpoint) {
+		position: relative;
+		bottom: 0;
+		width: 100%;
+		max-width: 100%;
+		border-bottom: 1px solid white;
+		& .row {
+			padding: 0;
+			margin: 0;
+		}
+		& p {
+			text-align: left;
+			padding: 0 0 15px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		position: relative;
+		max-width: 100%;
+		width: 100%;
+		z-index: 1;
+		bottom: 0;
+		background: white;
+		& p {
+			color: $green;
+			font-size: 18px;
+		}
+	}
+	@include respond-to($large-desktop) {
+		font-size: 20px;
+	}	
+}
+.gardenMap-filter-col {
+	padding: 0;
+}
+.gardenMap-filter {
+	position: relative;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	& input[type=checkbox]{
+	  position: absolute;
+	  visibility: hidden;
+	} 
+	& label {
+	  display: block;
+	  font-family: $font-tradeCon;
+	  color: white;
+	  position: relative;
+	  font-size: 15px;
+	  padding: 0 0 0 30px;
+	  z-index: 9;
+	  cursor: pointer;
+	  @include transition(all 0.2s 0.2s);
+	}
+	& .check {
+		display: block;
+		position: absolute;
+		border: 1px solid white;
+		border-radius: 100%;
+		height: 22px;
+		width: 22px;
+		top: 0;
+		left: 0;
+		z-index: 5;
+		@include transition(all 0.2s 0.2s);
+		&:before {
+			display: block;
+			position: absolute;
+			content: '';
+			border-radius: 100%;
+			height: 14px;
+			width: 14px;
+			top: 3px;
+			left: 3px;
+			margin: auto;
+			@include transition(all 0.2s 0.2s);
+		}
+	}
+	&:hover {
+		& label {
+			color: #FFFFFF;
+		}
+		& .check {
+			border: 3px solid #FFFFFF;
+		}
+	}
+	& input[type=checkbox]:checked ~ .check {
+		border: 1px solid #fff;
+	}
+	& input[type=checkbox]:checked ~ .check::before{
+	  background: #fff;
+	}
+	& input[type=checkbox]:checked ~ label{
+	  color: #fff;
+	}
+	@include respond-to($large-desktop) {
+		& label {
+			font-size: 18px;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		display: inline-block;
+		width: 49%;
+		vertical-align: top;
+		margin: 0;
+	}
+	@include respond-to($small-breakpoint) {
+		margin-bottom: 10px;
+		& label {
+			color: $green;
+			font-size: 15px;
+		}
+		& .check {
+			border-color: $green;
+		}
+		&:hover {
+			& label {
+				color: $green;
+			}
+			& .check {
+				border: 3px solid $green;
+			}
+		}
+		& input[type=checkbox]:checked ~ .check {
+			border: 1px solid $green;
+		}
+		& input[type=checkbox]:checked ~ .check::before{
+		  background: $green;
+		}
+		& input[type=checkbox]:checked ~ label{
+		  color: $green;
+		}
+	}
+}
+
+.gardenMap-overlay {
+	position: absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgb(05,05,05);
+  	background: rgba(08,08,08,0.3);
+
+  	display: none;
+}
+.gardenMap-overlay-content {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 180px;
+	width: 20%;
+	text-align: center;
+	& p {
+		font-family: $font-tradeCon;
+		color: black;
+		font-size:24px;
+		text-transform: uppercase;
+	}
+	@include respond-to($small-breakpoint) {
+		display: none;
+	}
+}
+
+.gardenMap-pdf {
+	& .container {
+		height: 900px;
+		position: relative;
+		@include respond-to($small-breakpoint) {
+			height: 600px;
+		}
+	}
+}
+.gardenMap-pdf-box {
+	position: absolute;
+    bottom: 50px;
+    left: 15px;
+    width: 40%;
+    padding: 50px;
+    & .u-blur-black {
+    	background-color: rgba(8, 8, 8, 0.45);
+    }
+    & h3 {
+    	padding-bottom: 15px;
+    }
+    & p {
+    	padding-bottom: 20px;
+    }
+    @include respond-to($medium-breakpoint) {
+    	left: 50px;
+    	padding: 30px;
+    	width: 50%;
+    }
+    @include respond-to($small-breakpoint) {
+    	left: 15px;
+    	bottom: 30px;
+    	width: 90%;
+    }
+}

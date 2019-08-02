@@ -1,0 +1,136 @@
+.subpageBanner {
+	height: 450px;
+	@include respond-to($medium-breakpoint) {
+		height: 350px;
+	}
+	@include respond-to($small-breakpoint) {
+		height: 280px;
+	}
+}
+.subpageMain-wrapper {
+	padding: 50px;
+	//margin-bottom: 50px;
+	margin-top: -50px;
+	@include respond-to($medium-breakpoint) { 
+		padding: 30px;
+	}
+	@include respond-to($small-breakpoint) { 
+		margin-top: -30px;
+		padding: 20px;
+	}
+}
+.subpageMain.subpageMain--end {
+	& .container {
+		padding-bottom: 80px;
+	}
+}
+.subpageMain.subpageMain--noPadding {
+	padding-bottom: 0 !important;
+}
+.subpageMain-breadcrumb {
+	padding-left: 30px;
+	font-size: 24px;
+	line-height: 24px;
+	&:after {
+		left: 5px;
+		right: auto;
+		top: 45%;
+		background-image: url('images/icon-arrow-left-pink.svg');
+	}
+	&:hover:after {
+		left: 0;
+		background-image: url('images/icon-arrow-left-green.svg');
+	}
+	@include respond-to($medium-breakpoint) { 
+		font-size: 18px;
+	}
+	@include respond-to($small-breakpoint) { 
+		padding-left: 20px;
+		padding-bottom: 15px;
+		&:after {
+			width: 14px;
+			height: 14px;
+			top: 43%;
+		}
+	}
+}
+.subpageMain h1 {
+	padding-bottom: 45px;
+	font-weight: 600 !important;
+	@include respond-to($small-breakpoint) { 
+		padding-bottom: 20px;
+	}
+}
+
+.subpageMain-columns {
+	padding-top: 70px;
+	@include respond-to($medium-breakpoint) {
+		padding-top: 30px;
+	}
+	@include respond-to($small-breakpoint) { 
+		padding-top: 0;
+	}
+}
+.subpageMain-col {
+	&:first-child {
+		border-right: 1px solid $green;
+		padding-right: 60px;
+	}
+	&:last-child {
+		padding-left: 60px;
+	}
+	& h2 {
+		font-size: 38px;
+		line-height: 42px;
+		padding-bottom: 20px;
+	}
+	@include respond-to($large-desktop) {
+		&:first-child {
+			padding-right: 100px;
+		}
+		&:last-child {
+			padding-left: 100px;
+		}
+		& h2 {
+			font-size: 42px;
+			line-height: 46px;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		&:first-child {
+			padding-right: 30px;
+		}
+		&:last-child {
+			padding-left: 30px;
+		}
+		& h2 {
+			font-size: 32px;
+			line-height: 40px;
+		}
+	}
+	@include respond-to($small-breakpoint) { 
+		padding: 30px 0 30px 0;
+		& h2 {
+			font-size: 24px;
+			line-height: 30px;
+			padding-bottom: 10px;
+		}
+		&:first-child {
+			padding-right: 0;
+			border-right: none;
+			border-bottom: 1px solid $green;
+		}
+		&:last-child {
+			padding-left: 0;
+			padding-bottom: 0;
+		}
+	}
+}
+.subpageMain-columns .parkingList {
+	& span {
+		background-color: white;
+	}
+	& li:after {
+		border-color: $green;
+	}
+}

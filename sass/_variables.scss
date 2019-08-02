@@ -1,0 +1,40 @@
+// Colors
+$green: #347C67;
+$light-green: #D2E5D5; 
+$pink: #EC6767; 
+
+$font-tradeBold: 'TradeBold';
+$font-tradeCon: 'TradeCon';
+$font-tradeRegular: 'TradeRegular';
+// Fonts
+@font-face {
+  font-family: 'TradeBold';
+  font-weight: 100 !important;
+  src: url('fonts/trade_bold.eot'); /* IE9 Compat Modes */
+  src: url('fonts/trade_bold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/trade_bold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/trade_bold.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'TradeCon';
+  font-weight: 100 !important;
+  src: url('fonts/trade_condensed.eot'); /* IE9 Compat Modes */
+  src: url('fonts/trade_condensed.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/trade_condensed.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/trade_condensed.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'TradeRegular';
+  src: url('fonts/trade_regular.eot'); /* IE9 Compat Modes */
+  src: url('fonts/trade_regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/trade_regular.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/trade_regular.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+// weather icons
+@font-face {
+  font-family: 'WeatherIcons';
+  src: url('fonts/artill_clean_icons-webfont.eot'); /* IE9 Compat Modes */
+  src: url('fonts/artill_clean_icons-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('fonts/artill_clean_icons-webfont.ttf')  format('truetype'); /* Safari, Android, iOS */
+}

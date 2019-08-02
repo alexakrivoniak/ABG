@@ -1,0 +1,791 @@
+// home leaves animation
+.homeLeaves {
+	overflow: hidden;
+}
+.homeLeaves-section {
+	position: relative;
+	z-index: 500;
+	&.index {
+		z-index: 0;
+		display: none;
+	}
+}
+.homeLeaves-section.homeLeaves-section--first {
+	& .homeLeaves-item:nth-child(1) {
+		top: -20%;
+	}
+	& .homeLeaves-item:nth-child(2) {
+		top: 25%;
+	}
+	& .homeLeaves-item:nth-child(3) {
+		top: 40%;
+	}
+	& .homeLeaves-item-:nth-child(4) {
+		top: -15%;
+	}
+	& .homeLeaves-item-:nth-child(5) {
+		top: 33%;
+	}
+	& .homeLeaves-item-:nth-child(6) {
+		top: 65%;
+	}
+}
+.homeLeaves-section.homeLeaves-section--footer {
+	& .homeLeaves-item:nth-child(1) {
+		top: -20%;
+	}
+	& .homeLeaves-item:nth-child(2) {
+		top: 25%;
+	}
+	& .homeLeaves-item:nth-child(3) {
+		top: 40%;
+	}
+	& .homeLeaves-item-:nth-child(4) {
+		top: -15%;
+	}
+}
+.homeLeaves--fall .homeLeaves-item {
+	width: 300px;
+	height: 300px;
+	&.homeLeaves-item--left {
+		left: -14%;
+	}
+	&.homeLeaves-item--right {
+		right: -14%;
+	}
+	@include respond-to($small-breakpoint) {
+		&.homeLeaves-item--left {
+			left: -40%;
+		}
+		&.homeLeaves-item--right {
+			right: -40%;
+		}
+	}
+}
+.homeLeaves--fall .homeLeaves-item {
+	width: 600px;
+	height: 600px;
+	&.homeLeaves-item--left {
+		left: -10%;
+	}
+	&.homeLeaves-item--right {
+		right: -10%;
+	}
+	@include respond-to($small-breakpoint) {
+		&.homeLeaves-item--left {
+			left: -40%;
+		}
+		&.homeLeaves-item--right {
+			right: -40%;
+		}
+	}
+}
+.homeLeaves--fall .homeLeaves-item,
+.homeLeaves--summer .homeLeaves-item,
+.homeLeaves--blossoms .homeLeaves-item  {
+	background-size: contain;
+	width: 800px;
+	height: 800px;
+	position: absolute;
+	@include transition(all 0.3s 0.3s);
+	&.homeLeaves-item--left {
+		left: -10%;
+		top: 33%;
+		&:nth-child(1) {
+			top: 15%;
+		}
+		&:nth-child(2) {
+			top: 38%;
+		}
+		&:nth-child(3) {
+			top: 59%;
+		}
+	}
+	&.homeLeaves-item--right {
+		right: -10%;
+		top: 33%;
+		//@include transform(160deg);
+		&:nth-child(4) {
+			top: -15%;
+		}
+		&:nth-child(5) {
+			top: 38%;
+		}
+		&:nth-child(6) {
+			top: 78%;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		max-height: 900px !important;
+		max-width: 900px !important;
+		&.homeLeaves-item--left {
+			left: -18%;
+		}
+		&.homeLeaves-item--right {
+			right: -18%;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		max-height: 700px !important;
+		max-width: 700px !important;
+		&.homeLeaves-item--left {
+			left: -15%;
+		}
+		&.homeLeaves-item--right {
+			right: -15%;
+		}
+	}
+}
+.homeLeaves--summer .homeLeaves-item {
+	width: 100px;
+	height: 100px;
+}
+
+.homeLeaves--orchid .homeLeaves-item {
+	background-size: contain;
+	position: absolute;
+	@include transition(all 0.3s 0.3s);
+	&.homeLeaves-item--left {
+		left: -10px;
+		background-position: left;
+	}
+	&.homeLeaves-item--right {
+		right: -10px;
+		background-position: right;
+	}
+	@include respond-to($small-breakpoint) {
+		&.homeLeaves-item--left {
+			left: -10px;
+		}
+		&.homeLeaves-item--right {
+			right: -10px;
+		}
+	}
+	&.homeLeaves-item--left {
+		top: 33%;
+		&:nth-child(1) {
+			top: -5%;
+		}
+		&:nth-child(2) {
+			top: 20%;
+		}
+		&:nth-child(3) {
+			top: 50%;
+		}
+		&:nth-child(4) {
+			top: 65%;
+		}
+		&:nth-child(5) {
+			top: 80%;
+		}
+	}
+	&.homeLeaves-item--right {
+		top: 33%;
+		//@include transform(160deg);
+		&:nth-child(4) {
+			top: -2%;
+		}
+		&:nth-child(5) {
+			top: 5%;
+		}
+		&:nth-child(6) {
+			top: 22%;
+		}
+		&:nth-child(7) {
+			top: 38%;
+		}
+		&:nth-child(8) {
+			top: 65%;
+		}
+		&:nth-child(9) {
+			top: 70%;
+		}
+	}
+}
+
+$delay-random: (random(2) * 0.5) + s; 
+$duration-random: (random(2) * 1.5) + s;
+.homeLeaves--fall .homeLeaves-section.active,
+.homeLeaves--summer .homeLeaves-section.active {
+	//@include animation (0s, 1.5s, test);
+	& .homeLeaves-item.homeLeaves-item--left {
+		$delay1: $delay-random;
+		$durration1: (random(2) * 0.8) + s; 
+		@include animation($delay1, $durration1, leftL);
+		&:nth-child(1) {
+			$delay1: $delay-random;
+			$durration1: (random(2) * 0.8) + s; 
+			@include animation($delay1, $durration1, leftL);
+		}
+		&:nth-child(2) {
+			$delay2: $delay-random; 
+			$durration2: $duration-random; 
+			@include animation($delay2, $durration2, leftL);
+		}
+		&:nth-child(3) {
+			$delay3: $delay-random;
+			$durration3: $duration-random;  
+			@include animation($delay3, $durration3, leftL);
+		}
+		&:nth-child(4) {
+			$delay4: $delay-random;
+			$durration4: $duration-random;  
+			@include animation($delay4, $durration4, leftL);
+		}
+		&:nth-child(5) {
+			$delay5: $delay-random;
+			$durration5: $duration-random;  
+			@include animation($delay5, $durration5, leftL);
+		}
+		&:nth-child(6) {
+			$delay6: $delay-random;
+			$durration6: $duration-random;  
+			@include animation($delay6, $durration6, leftL);
+		}
+		&:nth-child(7) {
+			$delay7: $delay-random;
+			$durration7: $duration-random;  
+			@include animation($delay7, $durration7, leftL);
+		}
+		&:nth-child(8) {
+			$delay8: $delay-random;
+			$durration8: $duration-random;  
+			@include animation($delay8, $durration8, leftL); 
+		}
+	}
+	& .homeLeaves-item.homeLeaves-item--right {
+		$delay1: $delay-random;
+		$durration1: $duration-random; 
+		@include animation($delay1, $durration1, rightL);
+		&:nth-child(3) {
+			$delay1: $delay-random;
+			$durration1: $duration-random; 
+			@include animation($delay1, $durration1, rightL);
+		}
+		&:nth-child(4) {
+			$delay2: $delay-random; 
+			$durration2: $duration-random; 
+			@include animation($delay2, $durration2, rightL);
+		}
+		&:nth-child(5) {
+			$delay3: $delay-random;
+			$durration3: $duration-random;  
+			@include animation($delay3, $durration3, rightL);
+		}
+		&:nth-child(6) {
+			$delay4: $delay-random;
+			$durration4: $duration-random;  
+			@include animation($delay4, $durration4, rightL);
+		}
+		&:nth-child(7) {
+			$delay5: $delay-random; 
+			$durration5: $duration-random;  
+			@include animation($delay5, $durration5, rightL);
+		}
+		&:nth-child(8) {
+			$delay6: $delay-random;
+			$durration6: $duration-random;  
+			@include animation($delay6, $durration6, rightL);
+		}
+		&:nth-child(9) {
+			$delay7: $delay-random;
+			$durration7: $duration-random;  
+			@include animation($delay7, $durration7, rightL);
+		}
+		&:nth-child(10) {
+			$delay8: $delay-random;
+			$durration8: $duration-random;  
+			@include animation($delay8, $durration8, rightL); 
+		}
+	}
+}
+
+@include keyframes(leftL) {
+	0% {
+    	@include transform(translateX(0) translateY(0) scale(1));
+    }
+    100% {
+    	@include transform(translateX(-100%) translateY(100px) scale(random(2) * 0.1));
+    }
+}
+@include keyframes(rightL) {
+	0% {
+    	@include transform(translateX(0) translateY(0) scale(1));
+    }
+    100% {
+    	@include transform(translateX(100%) translateY(-100px) scale(random(2) * 0.1));
+    }
+}
+.homeLeaves--winter,
+.homeLeaves--blossoms {
+	display: none;
+}
+.homeLeaves--winter .homeLeaves-item {
+	background-size: 95%;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	@include transition(all 0.45s 0.45s);
+	&.homeLeaves-item--left {
+		left: auto;
+		top: 33%;
+		&:nth-child(1) {
+			top: 15%;
+		}
+		&:nth-child(2) {
+			top: 38%;
+		}
+		&:nth-child(3) {
+			top: 59%;
+		}
+	}
+	&.homeLeaves-item--right {
+		right: auto;
+		top: 33%;
+		//@include transform(160deg);
+		&:nth-child(4) {
+			top: -15%;
+		}
+		&:nth-child(5) {
+			top: 38%;
+		}
+		&:nth-child(6) {
+			top: 78%;
+		}
+	}
+	@include animation-infinite(0s, 2s, winterLoop-light);
+	&:nth-child(4n),
+	&:nth-child(2n) {
+		@include animation-infinite(0.3s, 3s, winterLoop-light1);
+	}
+	&:nth-child(5n),
+	&:nth-child(7n) {
+		@include animation-infinite(0.8s, 2.5s, winterLoop-light2);
+	}
+	&:nth-child(6n),
+	&:nth-child(3n) {
+		@include animation-infinite(0.5s, 1.8s, winterLoop-light3);
+	}
+}
+@include keyframes(winterLoop-light) {
+	0% {
+    	opacity: 1;
+    }
+    65% {
+    	opacity: 0;
+    }
+    100% {
+    	opacity: 1;
+    }
+}
+@include keyframes(winterLoop-light1) {
+	0% {
+    	@include transform(scale(1));
+    	opacity: 1;
+    }
+    40% {
+    	opacity: 0;
+    	@include transform(scale(0.8));
+    }
+    100% {
+    	@include transform(scale(1));
+    	opacity: 1;
+    }
+}
+@include keyframes(winterLoop-light2) {
+	0% {
+    	@include transform(scale(1));
+    	opacity: 1;
+    }
+    20% {
+    	@include transform(scale(1));
+    	opacity: 1;
+    }
+    70% {
+    	opacity: 0;
+    	@include transform(scale(0.75));
+    }
+    100% {
+    	@include transform(scale(1));
+    	opacity: 1;
+    }
+}
+@include keyframes(winterLoop-light3) {
+	0% {
+    	@include transform(scale(1));
+    	opacity: 1;
+    }
+    50% {
+    	opacity: 0;
+    	@include transform(scale(0.9));
+    }
+    100% {
+    	@include transform(scale(1));
+    	opacity: 1;
+    }
+}
+.homeLeaves--winter .homeLeaves-section {
+	opacity: 1;
+	@include transition(all 0.25s 0.25s);
+}
+.homeLeaves--winter .homeLeaves-section.active {
+	@include animation(0.5s, 2s, winterAnim);
+	@include transition(all 0.25s 0.25s);
+}
+@include keyframes(winterAnim) {
+	0% {
+    	opacity: 1;
+    }
+    80% {
+    	opacity: 1;
+    }
+    100% {
+    	opacity: 0;
+    }
+}
+// $translate-random: random(100) * 60 + px; 
+// @include keyframes(winterAnim) {
+// 	0% {
+//     	@include transform(translateX(0) translateY(0) scale(1));
+//     	opacity: 1;
+//     }
+//     100% {
+//     	@include transform(translateX(0) translateY($translate-random) scale(0.7));
+//     	opacity: 0;
+//     }
+// }
+
+$delay-random: (random(2) * 0.5) + s; 
+$duration-random: (random(2) * 1) + s;
+.homeLeaves--orchid .homeLeaves-section.active {
+	//@include animation (0s, 1.5s, test);
+	& .homeLeaves-item.homeLeaves-item--left {
+		$delay1: $delay-random;
+		$durration1: (random(2) * 0.8) + s; 
+		@include animation($delay1, $durration1, leftOrchid);
+		&:nth-child(1) {
+			$delay1: $delay-random;
+			$durration1: (random(2) * 0.8) + s; 
+			@include animation($delay1, $durration1, leftOrchid);
+		}
+		&:nth-child(2) {
+			$delay2: $delay-random; 
+			$durration2: $duration-random; 
+			@include animation($delay2, $durration2, leftOrchid);
+		}
+		&:nth-child(3) {
+			$delay3: $delay-random;
+			$durration3: $duration-random;  
+			@include animation($delay3, $durration3, leftOrchid);
+		}
+		&:nth-child(4) {
+			$delay4: $delay-random;
+			$durration4: $duration-random;  
+			@include animation($delay4, $durration4, leftOrchid);
+		}
+		&:nth-child(5) {
+			$delay5: $delay-random;
+			$durration5: $duration-random;  
+			@include animation($delay5, $durration5, leftOrchid);
+		}
+		&:nth-child(6) {
+			$delay6: $delay-random;
+			$durration6: $duration-random;  
+			@include animation($delay6, $durration6, leftOrchid);
+		}
+		&:nth-child(7) {
+			$delay7: $delay-random;
+			$durration7: $duration-random;  
+			@include animation($delay7, $durration7, leftOrchid);
+		}
+		&:nth-child(8) {
+			$delay8: $delay-random;
+			$durration8: $duration-random;  
+			@include animation($delay8, $durration8, leftOrchid); 
+		}
+	}
+	& .homeLeaves-item.homeLeaves-item--right {
+		$delay1: $delay-random;
+		$durration1: $duration-random; 
+		@include animation($delay1, $durration1, rightOrchid);
+		&:nth-child(3) {
+			$delay1: $delay-random;
+			$durration1: $duration-random; 
+			@include animation($delay1, $durration1, rightOrchid);
+		}
+		&:nth-child(4) {
+			$delay2: $delay-random; 
+			$durration2: $duration-random; 
+			@include animation($delay2, $durration2, rightOrchid);
+		}
+		&:nth-child(5) {
+			$delay3: $delay-random;
+			$durration3: $duration-random;  
+			@include animation($delay3, $durration3, rightOrchid);
+		}
+		&:nth-child(6) {
+			$delay4: $delay-random;
+			$durration4: $duration-random;  
+			@include animation($delay4, $durration4, rightOrchid);
+		}
+		&:nth-child(7) {
+			$delay5: $delay-random; 
+			$durration5: $duration-random;  
+			@include animation($delay5, $durration5, rightOrchid);
+		}
+		&:nth-child(8) {
+			$delay6: $delay-random;
+			$durration6: $duration-random;  
+			@include animation($delay6, $durration6, rightOrchid);
+		}
+		&:nth-child(9) {
+			$delay7: $delay-random;
+			$durration7: $duration-random;  
+			@include animation($delay7, $durration7, rightOrchid);
+		}
+		&:nth-child(10) {
+			$delay8: $delay-random;
+			$durration8: $duration-random;  
+			@include animation($delay8, $durration8, rightOrchid); 
+		}
+	}
+}
+
+@include keyframes(leftOrchid) {
+	0% {
+    	@include transform(translateX(0) translateY(0));
+    }
+    100% {
+    	@include transform(translateX(-100%) translateY(100px));
+    }
+}
+@include keyframes(rightOrchid) {
+	0% {
+    	@include transform(translateX(0) translateY(0));
+    }
+    100% {
+    	@include transform(translateX(100%) translateY(-100px));
+    }
+}
+
+
+// rotate
+.homeLeaves--blossoms .homeLeaves-item {
+	&:nth-child(3n) {
+		@include transform(rotate(30deg));
+	}
+	&:nth-child(4n) {
+		@include transform(rotate(-25deg));
+	}
+	&:nth-child(5n) {
+		@include transform(rotate(-15deg));
+	}
+}
+
+// .homeLeaves--blossoms .homeLeaves-section {
+// 	& .example-petal {
+// 		background-color: pink;
+// 		width: 80px;
+// 		height: 200px;
+// 		border-radius: 30px;
+// 		position: absolute;
+// 		left: 0;
+// 		right: 0;
+// 		margin: 0 auto;
+// 		text-align: center;
+// 		top: 50%;
+// 		@include animation-infinite (1s, 4s, petal3);
+// 	}
+// }
+
+$petal-delay-random: (random(2) * 0.5) + s; 
+$petal-duration-random: (random(4) * 2) + s;
+.homeLeaves--blossoms .homeLeaves-section.active .homeLeaves-item  {
+	@include animation($petal-delay-random, $petal-duration-random, petal);
+	&:nth-child(3n) {
+		@include animation($petal-delay-random, $petal-duration-random, petal1);
+	}
+	&:nth-child(4n) {
+		@include animation($petal-delay-random, $petal-duration-random, petal3);
+	}
+	&:nth-child(5n) {
+		@include animation($petal-delay-random, $petal-duration-random, petal2);
+	}
+}
+// @include keyframes(petal) {
+// 	0% {
+//     	@include transform(translateX(0) translateY(0));
+//     	opacity: 1;
+//     }
+//     35% {
+//     	@include transform(translateX(55px) translateY(60px));
+//     	opacity: 1;
+//     }
+//     65% {
+//     	@include transform(translateX(-40px) translateY(120px));
+//     	opacity: 1;
+//     }
+//     100% {
+//     	@include transform(translateX(40px) translateY(140px));
+//     	opacity: 0;
+//     	z-index: 0;
+//     }
+// }
+@include keyframes(petal) {
+	0% {
+    	@include transform(translateX(0) translateY(0));
+    	opacity: 1;
+    }
+    35% {
+    	@include transform(translateX(20px) translateY(60px));
+    	opacity: 1;
+    }
+    65% {
+    	@include transform(translateX(-10px) translateY(120px));
+    	opacity: 1;
+    }
+    100% {
+    	@include transform(translateX(-30px) translateY(140px));
+    	opacity: 0;
+    	z-index: 0;
+    }
+}
+@include keyframes(petal1) {
+	0% {
+    	@include transform(translateX(0) translateY(0) rotate(30deg));
+    	opacity: 1;
+    }
+    60% {
+    	opacity: 1;
+    }
+    100% {
+    	@include transform(translateX(120px) translateY(300px) rotate(0deg));
+    	opacity: 0;
+    	z-index: 0;
+    }
+}
+@include keyframes(petal2) {
+	0% {
+    	@include transform(translateX(0) translateY(0) rotate(-15deg));
+    	opacity: 1;
+    }
+    25% {
+    	@include transform(translateX(-40px) translateY(30px) rotate(-15deg));
+    }
+    55% {
+    	@include transform(translateX(-80px) translateY(60px) roate(-15deg));
+    }
+    60% {
+    	@include transform(translateX(-90px) translateY(70px) roate(-28deg));
+    	opacity: 1;
+    }
+    100% {
+    	@include transform(translateX(-150px) translateY(160px) rotate(-40deg));
+    	opacity: 0;
+    	z-index: 0;
+    }
+}
+@include keyframes(petal3) {
+	0% {
+    	@include transform(translateX(0) translateY(0) rotate(-25deg));
+    	opacity: 1;
+    }
+    60% {
+    	@include transform(translateX(-25px) translateY(120px) rotate(10deg));
+    	opacity: 1;
+    }
+    100% {
+    	@include transform(translateX(-50px) translateY(250px) rotate(-25deg));
+    	opacity: 0;
+    	z-index: 0;
+    }
+}
+
+
+
+
+// @include keyframes(petal) {
+// 	0% {
+//     	@include transform(translateX(0) translateY(0));
+//     	opacity: 1;
+//     }
+//     30% {
+//     	@include transform(translateX(-20px) translateY(80px));
+//     	opacity: 1;
+//     }
+//     33% {
+//     	@include transform(translateX(-20px) translateY(85px));
+//     	opacity: 1;
+//     }
+//     65% {
+//     	@include transform(translateX(0px) translateY(110px));
+//     	opacity: 1;
+//     }
+//     100% {
+//     	@include transform(translateX(10px) translateY(160px));
+//     	opacity: 0;
+//     	z-index: 0;
+//     }
+// }
+// @include keyframes(petal1) {
+// 	0% {
+//     	@include transform(translateX(0) translateY(0) rotate(30deg));
+//     	opacity: 1;
+//     }
+//     30% {
+//     	@include transform(translateX(10px) translateY(70px) roate(35deg));
+//     }
+//     60% {
+//     	@include transform(translateX(-10px) translateY(100px) rotate(30deg));
+//     	opacity: 1;
+//     }
+//     100% {
+//     	@include transform(translateX(10px) translateY(150px) rotate(35deg));
+//     	opacity: 0;
+//     	z-index: 0;
+//     }
+// }
+// @include keyframes(petal2) {
+// 	0% {
+//     	@include transform(translateX(0) translateY(0) rotate(-15deg));
+//     	opacity: 1;
+//     }
+//     30% {
+//     	@include transform(translateX(40px) translateY(60px) roate(-20deg));
+//     }
+//     60% {
+//     	@include transform(translateX(60px) translateY(80px) rotate(-10deg));
+//     	opacity: 1;
+//     }
+//     100% {
+//     	@include transform(translateX(80px) translateY(120px) rotate(-22deg));
+//     	opacity: 0;
+//     	z-index: 0;
+//     }
+// }
+// @include keyframes(petal3) {
+// 	0% {
+//     	@include transform(translateX(0) translateY(0) rotate(-25deg));
+//     	opacity: 1;
+//     }
+//     60% {
+//     	@include transform(translateX(-25px) translateY(120px) rotate(10deg));
+//     	opacity: 1;
+//     }
+//     100% {
+//     	@include transform(translateX(-50px) translateY(250px) rotate(-25deg));
+//     	opacity: 0;
+//     	z-index: 0;
+//     }
+// }
+.homeLeaves--blossoms .homeLeaves-item.blossoms-blur  {
+	-webkit-filter: blur(5px);
+	-moz-filter: blur(5px);
+	-o-filter: blur(5px);
+	-ms-filter: blur(5px);
+	filter: blur(5px);
+	z-index: 1; 
+}
+.homeLeaves--blossoms .index .homeLeaves-item.blossoms-blur {
+	z-index: 0;
+}

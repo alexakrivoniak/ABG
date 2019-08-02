@@ -1,0 +1,1037 @@
+.instaSection {
+	& .u-vh100 {
+		min-height: 1200px;
+		max-height: 1200px;
+	}
+	@include respond-to($medium-breakpoint) {
+		& .u-vh100 {
+			min-height: 780px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& .u-vh100 {
+			min-height: 500px;
+		}
+		& .sbi-owl-stage-outer {
+			height: 350px;
+		}
+		& .sbi-owl-dots {
+			display: none;
+		}
+		& .sbi-owl-nav .sbi-owl-prev,
+		& .sbi-owl-nav .sbi-owl-next {
+			top: 50% !important;
+		}
+	}
+}
+.instaSection #sb_instagram .sbi_photo_wrap {
+	width: 100%;
+	height: 100%;
+	& .sbi_photo {
+		width: 100%;
+		height: 100%;
+	}
+}
+.instaSection-bg {
+	right: 33.333%;
+	bottom: 400px;
+	height: auto;
+	width: auto;
+	min-height: 800px;
+	max-height: 800px;
+	@include respond-to($medium-breakpoint) {
+		right: 0;
+		min-height: 500px;
+	}
+	@include respond-to($small-breakpoint) {
+		min-height: 300px;
+		bottom: 250px;
+	}
+}
+.home .instaSection-block,
+#sb_instagram.sbi_col_1 #sbi_images .sbi_item,
+#sb_instagram #sbi_images .sbi_item {
+	&:after {
+		position: absolute;
+		content: '';
+		display: block;
+		right: 15px;
+		bottom: 15px;
+		width: 32px;
+		height: 32px;
+		background-image: url('images/icon-insta-feed.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		@include respond-to($small-breakpoint) {
+			right: 10px;
+			bottom: 10px;
+			width: 25px;
+			height: 25px;
+		}
+	}
+}
+#sb_instagram .sbi_photo_wrap:hover .sbi_link {
+	opacity: 0 !important;
+}
+.instaSection-block,
+#sb_instagram #sbi_images .sbi_item {
+	position: absolute !important;
+	height: 400px !important;
+	display: block;
+	width: 33.33% !important;
+	z-index: 20;
+	&:first-child {
+		right: 0;
+		top: 0;
+	}
+	&:nth-child(2) {
+		right: 0;
+		top: 400px;
+	}
+	&:nth-child(3) {
+		bottom: 0;
+		left: 0;
+	}
+	&:nth-child(4) {
+		bottom: 0;
+		left: 33.33%;
+	}
+	&:nth-child(5) {
+		bottom: 0; 
+		right: 0;
+	}
+	&:nth-child(3),
+	&:nth-child(4),
+	&:nth-child(5) {
+		width: 33.33% !important;
+	}
+	@include respond-to($medium-breakpoint) {
+		height: 280px !important;
+		&:first-child,
+		&:nth-child(2) {
+			display: none !important;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		height: 350px !important; 
+		width: 100% !important;
+		display: block;
+		position: relative;
+		&:first-child,
+		&:nth-child(2) {
+			display: block !important;
+			width: 100% !important;
+		}
+		&:nth-child(3),
+		&:nth-child(4),
+		&:nth-child(5) {
+			width: 100% !important;
+		}
+		&:nth-child(2) {
+			right: 0;
+			top:auto;
+		}
+		&:nth-child(4) {
+			bottom: 0;
+			left: auto;
+		}
+	}
+}
+.instaSection-blurBox {
+	width: 630px;
+	position: relative;
+	top: 260px;
+	opacity: 0;
+	top: 10%;
+	& .u-blur {
+		background-position: 38% 66%;
+		background-size: 950px;
+	}
+	@include respond-to($large-desktop) {
+		background-position: 26% 85%;
+		background-size: 750px;
+	}
+	@include respond-to($medium-breakpoint) {
+		width: 70%;
+		top: 80px;
+		right: 0;
+		left: 0;
+		margin: 0 auto;
+		position: absolute;
+		& .u-blur {
+			background-position: 48% 53%;
+			background-size: 800px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		width: 80%;
+		top: 25px;
+		& .u-blur {
+			background-position: 47% 32%;
+			background-size: 450px;
+		}
+	}
+}
+.instaSection-blocks-swiper {
+	@include respond-to($small-breakpoint) {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		height: 350px;
+	}
+}
+
+.whiteTouts {
+	& .row {
+		padding: 100px 0;
+	}
+	@include respond-to($small-breakpoint) {
+		& .container {
+			padding: 0;
+		}
+		&  .row {
+			padding: 30px 0;
+		}
+	}
+}
+.whiteTout-item {
+	border-right: 1px solid $green;
+	& .whiteTout {
+		padding: 10px 30px;
+	}
+	&:last-child {
+		border-right: none;
+	}
+	@include respond-to($medium-breakpoint) {
+		border-right: none;
+		width: 95%;
+		margin: 0 auto;
+		&:first-child {
+			border-bottom: 1px solid $green;
+			padding-bottom: 30px;
+			margin-bottom: 30px;
+		}
+	}
+}
+.whiteTout {
+	& h3 {
+		font-size: 40px;
+		line-height: 46px;
+		padding-bottom: 30px;
+		font-weight: 800;
+	}
+	& p {
+		font-size: 18px !important;
+		line-height: 22px !important;
+		padding-bottom: 30px;
+	}
+	@include respond-to($medium-breakpoint) {
+		& h3 {
+			font-size: 32px;
+			line-height: 36px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& h3 {
+			font-size: 25px;
+			line-height: 30px;
+			padding-bottom: 10px;
+		}
+		& p {
+			font-size: 14px !important;
+			line-height: 18px;
+			padding-bottom: 10px;
+		}
+	}
+}
+
+// swiper general styles
+.swiper-pagination-bullet {
+	height: 16px;
+	width: 16px;
+	margin: 0 8px;
+	outline: none;
+	background: transparent;
+	border: 2px solid white;
+	opacity: 1;
+}
+.swiper-pagination--green .swiper-pagination-bullet {
+	border: 2px solid $green;
+}
+.swiper-pagination--green .swiper-pagination-bullet.swiper-pagination-bullet-active {
+	background-color: $green;
+}
+.swiper-button-white {
+	outline: none;
+}
+
+.eventCard {
+	border: 1px solid $green;
+	padding: 0 0 40px;
+}
+.eventCard .eventCard-date {
+	border-bottom: 1px solid $green;
+	padding: 10px 15px;
+	& p {
+		font-size: 18px;
+		margin-bottom: 0;
+	}
+	@include respond-to($small-breakpoint) {
+		& p {
+			font-size: 14px;
+		}
+	}
+}
+.eventCard .eventCard-content {
+	padding: 15px;
+	& a {
+		& h4 {
+			font-size: 26px;
+			line-height: 34px;
+			font-weight: 700;
+			padding-bottom: 10px;
+			margin-bottom: 0;
+			@include transition(all 0.15s 0.15s);
+		}
+		&:hover {
+			& h4 {
+				color: $pink;
+			}
+		}
+	}
+	& p {
+		font-size: 16px;
+		line-height: 20px;
+		font-weight: 700;
+		margin-bottom:0;
+		padding: 0 0 10px;
+	}
+	@include respond-to($small-breakpoint) {
+		& a h4 {
+			font-size: 20px;
+			line-height: 28px;
+		}
+		& p {
+			font-size: 14px;
+			line-height: 18px;
+		}
+	}
+}
+.eventCard-content-location {
+	padding: 18px 0;
+	position: relative;
+	font-size: 18px;
+	letter-spacing: 0.05em;
+	&:before {
+		content: '';
+		background-image: url('images/icon-location-green.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		display: inline-block;
+		vertical-align: top;
+		margin: 2px 5px 0 0;
+		width: 15px;
+		height: 15px;
+	}
+}
+.eventCard-btn {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	bottom: 0;
+	border-top: 1px solid $green;
+	padding: 10px;
+	font-size: 18px;
+	display: block;
+	border-bottom: none !important;
+	&:after {
+		content: '';
+		background-image: url('images/icon-arrow-right-green.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		display: block;
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		width: 15px;
+		height: 15px;
+		@include transition(all 0.15s 0.15s);
+	}
+	&:hover {
+		color: white !important;
+		background-color: $green;
+		&:after {
+			right: 10px;
+			background-image: url('images/icon-arrow-right-white.svg');
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		font-size: 13px;
+		&:after {
+			top: 11px;
+		}
+	}
+}
+
+.greenBlocks {
+	padding: 30px 0 0;
+	& .row {
+		padding: 50px;
+	}
+	@include respond-to($medium-breakpoint) {
+		& .row {
+			padding: 50px 30px;
+		}
+	}
+	@include respond-to($small-breakpoint) { 
+		padding: 30px 0;
+		& .row {
+			padding: 0 20px;
+		}
+	}
+}
+.greenBlock {
+	font-size: 22px;
+	line-height: 26px;
+	color: white;
+	&:first-child {
+		border-right: 1px solid white;
+		padding-right: 60px;
+	}
+	&:last-child {
+		padding-left: 60px;
+	}
+	& h3 {
+		font-size: 38px;
+		line-height: 42px;
+		padding-bottom: 20px;
+		font-weight: 700;
+	}
+	& p {
+		padding-bottom: 20px;
+	}
+	& .btn {
+		margin-top: 30px;
+		border: none !important;
+		& a {
+			border: none !important;
+		}
+	}
+	& a {
+		color: white;
+		border-bottom: 1px solid white;
+		&:hover {
+			border: 1px solid $green;
+		}
+	}
+	@include respond-to($large-desktop) {
+		& p {
+			padding-bottom: 20px;
+		}
+		&:first-child {
+			padding-right: 100px;
+		}
+		&:last-child {
+			padding-left: 100px;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		&:first-child {
+			padding-right: 30px;
+		}
+		&:last-child {
+			padding-left: 30px;
+		}
+	}
+	@include respond-to($small-breakpoint) { 
+		padding:40px 0;
+		& .btn {
+			margin-top: 10px;
+		}
+		&:first-child {
+			padding-right: 0;
+			border-right: none;
+			border-bottom: 1px solid white;
+		}
+		&:last-child {
+			padding-left: 0;
+		}
+		& h3 {
+			font-size: 24px;
+			line-height: 30px;
+			padding-bottom: 10px;
+		}
+		& p {
+			padding-bottom: 10px;
+		}
+	}
+}
+.greenBlock--1 {
+	padding: 0;
+	&:last-child,
+	&:first-child {
+		padding:0;
+		border: none;
+	}
+}
+.greenBlocks--end {
+	& .row {
+		padding: 50px 50px 50px;
+	}
+	& .greenBlock--1 {
+		padding: 0 50px;
+	}
+}
+.greenBlocks.greenBlocks--extraPadding {
+	padding: 30px 0;
+}
+.greenBlocks--float {
+	&.greenBlocks--end {
+		& .container {
+			padding-bottom: 100px;
+		}
+	}
+	& .row {
+		margin-bottom: -200px;
+		position: relative;
+		z-index: 5;
+	}
+	@include respond-to($small-breakpoint) { 
+		background-color: $green;
+		& .row {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.imadeSlider-slide {
+	& .container {
+		min-height: 700px;
+		position: relative;
+	}
+	@include respond-to($medium-breakpoint) {
+		min-height: 350px;
+		& .container {
+			height: auto;
+			min-height: auto;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		min-height: 280px;
+	}
+}
+.imageSlider--withGreenBlocks {
+	& .imadeSlider-slide {
+		& .container {
+			margin-top:100px;
+			@include respond-to($medium-breakpoint) { 
+				margin-top: 450px;
+			}
+			@include respond-to($small-breakpoint) {
+				margin-top: 280px;
+			}
+		}
+	}
+}
+.imageSlider-img-bg {
+	@include respond-to($medium-breakpoint) { 
+		top: 0;
+		height: 450px;
+	}
+	@include respond-to($small-breakpoint) {
+		height: 280px;
+	}
+}
+.imageSlider-container {
+	@include respond-to($medium-breakpoint) { 
+		background: white;
+		position: relative;
+		margin-top: 450px;
+		position: relative;
+	}
+	@include respond-to($small-breakpoint) {
+		margin-top: 280px;
+	}
+}
+.imageSlider-caption {
+	position: absolute;
+	right: 30px;
+	bottom: 150px;
+	width: 45%;
+	padding: 50px;
+	//opacity: 0;
+	& h3 {
+		font-size: 40px;
+		font-weight: 800;
+		padding-bottom: 20px;
+	}
+	& .btn {
+		margin-top: 30px;
+	}
+	& .u-blur {
+		background-position: 72% 101%;
+	}
+	@include respond-to($large-desktop) {
+		right: 0;
+		bottom: 60px;
+		& .u-blur {
+			background-position: 91% 98%;
+		}
+	}
+	@include respond-to($medium-breakpoint) { 
+		position: relative;
+		width:100%;
+		right: auto;
+		bottom: auto;
+		& .u-blur {
+			display: none;
+		}
+		& .u-blur-black {
+			display: none;
+		}
+		& h3 {
+			color: $green;
+		}
+		& p {
+			color: $green;
+		}
+	}
+	@include respond-to($small-breakpoint) { 
+		padding: 60px 20px 40px;
+		& h3 {
+			font-size: 24px;
+			line-height: 30px;
+		}
+	}
+}
+.imageSlider-pagination.swiper-pagination-bullets {
+	right: auto;
+	text-align: center;
+	left: 10px;
+	width: 50%;
+	bottom: 80px;
+	& .swiper-pagination-bullet {
+		height: 20px;
+		width: 20px;
+		margin: 0 15px;
+		box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.8);
+	}
+	@include respond-to($large-desktop) { 
+		left: 30px;
+	}
+	@include respond-to($medium-breakpoint) { 
+		bottom: auto;
+		width: 100%;
+		top: 400px;
+		left: 0;
+		right: 0;
+		text-align: center;
+		margin: 0 auto;
+		& .swiper-pagination-bullet {
+			margin: 0 10px !important;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		top: 240px;
+		& .swiper-pagination-bullet {
+			height:15px;
+			width:15px;
+		}
+	}
+}
+.imageSlider {
+	& .swiper-button-next,
+	& .swiper-button-prev {
+		height: 60px;
+		width: 60px;
+		top: 28%;
+		background-size: contain;
+	}
+	& .swiper-button-next {
+		right: 5%;
+	}
+	& .swiper-button-prev {
+		left: 5%;
+	}
+	@include respond-to($medium-breakpoint) { 
+		& .swiper-button-next,
+		& .swiper-button-prev {
+			height: 30px;
+			width: 30px;
+			top: 225px;
+		}
+		& .swiper-button-next {
+			right: 10px;
+		}
+		& .swiper-button-prev {
+			left: 10px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& .swiper-button-next,
+		& .swiper-button-prev {
+			top: 140px;
+		}
+	}
+}
+.imageSlider-slide--leftCaption .imageSlider-caption {
+	right: auto;
+	left: 30px;
+	& .u-blur {
+		background-position: 23% 94%;
+	}
+	@include respond-to($large-desktop) {
+		left: 30px;
+		& .u-blur {
+			background-position: 8% 80%;
+		}
+	}
+	@include respond-to($medium-breakpoint) { 
+		right: auto;
+		left: auto;
+	}
+}
+.imageSlider-pagination.imageSlider-pagination--leftCaption {
+	right: 10px;
+	left: auto;
+	@include respond-to($large-desktop) { 
+		right: 30px;
+	}
+	@include respond-to($medium-breakpoint) { 
+		right: auto;
+		text-align: center;
+	}
+}
+
+.whiteBlocks {
+	padding: 40px 0;
+	@include respond-to($small-breakpoint) {
+		padding: 30px 0 0;
+	}
+}
+.whiteBlocks-title {
+	padding-bottom: 50px;
+}
+.whiteBlock-image {
+	width: 100%;
+	position: relative;
+	height: 230px;
+	display: block;
+	@include respond-to($large-desktop) { 
+		height: 300px;
+	}
+	@include respond-to($small-breakpoint) {
+		height: 200px;
+	}
+}
+.whiteBlock-content {
+	padding: 30px 20px;
+	& h3 {
+		padding-bottom: 15px;
+	}
+	& .btn {
+		margin-top: 25px;
+		border-bottom: none;
+		& a {
+			border-bottom: none;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		padding: 20px 20px 40px;
+		& h3 {
+			font-size: 24px;
+			line-height: 30px;
+			padding-bottom: 10px;
+		}
+	}
+}
+.whiteBlock-col,
+.whiteBlock-col--2 {
+	display: inline-block;
+	vertical-align: top;
+	width: 49.5%;
+	padding-bottom: 50px;
+	&:nth-child(odd) {
+		padding-right: 35px;
+	}
+	&:nth-child(even) {
+		padding-left: 35px;
+	}
+	@include respond-to($small-breakpoint) {
+		width: 100%;
+		padding: 0 0 20px;
+		&:nth-child(odd) {
+			padding-right: 0;
+		}
+		&:nth-child(even) {
+			padding-left: 0;
+		}
+	}
+}
+.whiteBlock-col.whiteBlock-col--1 {
+	width: 100%;
+	&:nth-child(odd) {
+		padding:0;
+	}
+	&:nth-child(even) {
+		padding: 0;
+	}
+}
+.whiteBlock-col.whiteBlock-col--3 {
+	width: 32.5%;
+	&:nth-child(1) {
+		padding: 0 30px 0 0;
+	}
+	&:nth-child(2) {
+		padding: 0 15px 0;
+	}
+	&:nth-child(3) {
+		padding: 0 0 0 30px;
+	}
+	@include respond-to($medium-breakpoint) {
+		&:nth-child(1) {
+			padding: 0 10px 0 0;
+		}
+		&:nth-child(2) {
+			padding: 0 5px 0;
+		}
+		&:nth-child(3) {
+			padding: 0 0 0 10px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		width: 100%;
+		padding:0 15px;
+		&:nth-child(1) {
+			padding:0 15px;
+		}
+		&:nth-child(2) {
+			padding:0 15px;
+		}
+		&:nth-child(3) {
+			padding:0 15px;
+		}
+	}
+}
+.whiteBlocks.whiteBlocks--details {
+	background-color: $green;
+	padding: 0 0 80px;
+	& .whiteBlocks-wrapper {
+		background-color: white;
+		padding: 50px;
+	}
+	@include respond-to($small-breakpoint) {
+		padding: 0 0 30px;
+	}
+}
+.whiteBlock-content-date {
+	font-size: 22px;
+}
+.whiteBlock-content-location {
+	font-size: 22px;
+	padding: 2px 0 10px;
+}
+
+.accordion {
+	padding: 80px 0;
+	& h2 {
+		padding: 0 45px;
+		font-size: 40px;
+		line-height: 48px;
+		font-weight: 800;
+	}
+	@include respond-to($small-breakpoint) {
+		padding: 30px 0 50px;
+		& h2 {
+			font-size: 36px;
+			line-height: 39px;
+			padding: 0 15px 20px;
+		}
+	}
+}
+.accordion-item {
+	padding: 45px;
+	border-bottom: 1px solid $green;
+	& h3 {
+		font-size: 25px;
+		line-height: 30px;
+		font-weight: 800;
+		display: block;
+		position: relative;
+		padding-right: 100px;
+		cursor: pointer;
+		&:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			width: 20px;
+			height: 20px;
+			background-repeat: no-repeat;
+			background-size: contain;
+			display: block;
+			background-image: url('images/icon-arrow-down-green.svg');
+			@include vertical-align(absolute);
+			@include transition(all 0.25s 0.25s);
+		}
+		&:hover {
+			color: lighten($green, 8%);
+		}
+	}
+	&.open {
+		& h3 {
+			&:after {
+				@include transform(rotate(180deg));
+				transform-origin: 50% 0%;
+			}
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		padding: 15px;
+		& h3 {
+			font-size: 20px;
+			line-height: 28px;
+			&:after {
+				width: 13px;
+				height: 13px;
+			}
+		}
+	}
+}
+.js-accordion-content {
+	display: none;
+}
+.accordion-content {
+	color: $green;
+	font-size: 20px;
+	line-height: 26px;
+	padding-top: 20px;
+	padding-right: 80px;
+	@include respond-to($small-breakpoint) {
+		padding-right: 30px;
+	}
+}
+.accordion--details {
+	background-color: $green;
+	padding: 0 0 80px;
+	& .accordion-wrapper {
+		background-color: white;
+		padding: 50px 50px 80px;
+	}
+}
+
+.fullscreen-video-bg {
+	position: absolute !important;
+	top:0;
+	right:0;
+	bottom:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	overflow: hidden;
+}
+.jquery-background-video {
+	position: absolute !important;
+	top:0;
+	right:0;
+	bottom:0;
+	left: 0;
+	// width: 100%;
+	height: 100%;
+	z-index: 0;
+	overflow: hidden;
+	@include respond-to($medium-breakpoint) {
+		height: auto;
+		width: 100%;
+	}
+	@include respond-to($small-breakpoint) {
+		width: auto;
+		height: 100%;
+	}
+}
+.js-background-video {
+	& .u-blur-black {
+		background-color: rgba(8, 8, 8, 0.6);
+	}
+}
+
+.search .content-wrapper > h1 {
+	display: none;
+}
+.search {
+	& .whiteBlock-content {
+		& h4 {
+			margin-bottom: 5px;
+		}
+		& h3 {
+			padding-bottom: 0;
+		}
+		& .whiteBlock-content-date {
+			font-size: 20px;
+		}
+	}
+}
+.tool-pagination {
+	& .pages {
+		list-style: none;
+		margin: 0;
+		padding: 0; 
+		display: inline-block; 
+		vertical-align: top;
+		& li {
+			display: inline-block; 
+			vertical-align: top;
+		}
+	}
+	& .next,
+	& .prev {
+		display: inline-block; 
+		vertical-align: top;
+	}
+	& span.page-number {
+		padding: 5px 10px;
+		margin: 5px;
+		display: inline-block;
+	}
+	& a {
+		background-color: $green;
+		color: white;
+		padding: 5px 10px;
+		margin: 5px;
+		border: none;
+		display: inline-block;
+		&:hover {
+			background-color: $pink;
+			color: white; 
+		}
+	}
+}
+.page-id-4104 .subpageMain-content {
+	& > ul {
+		padding-bottom: 50px;
+	}
+	& li {
+		padding-bottom: 8px;
+	}
+}
+
+.page-template-overview-details,
+.single {
+	& .indexContent > .container > .row {
+		padding: 0 50px;
+	}
+	& .whiteBlocks-wrapper {
+		padding: 0 50px;
+	}
+	@include respond-to($small-breakpoint) {
+		& .indexContent > .container > .row {
+			padding: 0;
+		}
+		& .whiteBlocks-wrapper {
+			padding: 0;
+		}
+	}
+}

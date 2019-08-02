@@ -1,0 +1,444 @@
+.gardenQuiz {
+	min-height: 1000px;
+	position: relative;
+}
+.gardenQuiz-box {
+	margin: 240px 0;
+	padding: 80px;
+	& h2 {
+		font-size: 35px;
+		padding: 15px 0;
+	}
+	@include respond-to($small-breakpoint) {
+		margin: 100px 0;
+		padding: 25px;
+		& h1 {
+			font-size: 25px;
+		}
+		& h2 {
+			padding: 5px 0;
+			font-size: 18px;
+		}
+	}
+}
+.gardenQuiz-paths {
+	margin-top: 40px;
+	padding-top: 25px;
+	border-top: 1px solid white;
+	@include respond-to($small-breakpoint) {
+		margin-top: 20px;
+		padding-top: 15px;
+	}
+}
+.gardenQuiz-path {
+	border-right: 1px solid white;
+	margin: 0;
+	padding: 0;
+	background-color: rgba(255,255,255,0);
+	cursor: pointer;
+	@include transition(all 0.25s 0.25s);
+	&:last-child {
+		border-right: none;
+	}
+	&:hover {
+		& img {
+			@include transform(scale(1.14));
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		padding-left: 5px;
+		padding-right: 5px;
+		border-bottom: 1px solid white;
+		&:nth-child(3) {
+			border-right: none;
+		}
+		&:nth-child(4),
+		&:nth-child(5),
+		&:nth-child(6) {
+			border-bottom: none;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		padding-left: 0;
+		padding-right: 0;
+		&:nth-child(3) {
+			border-right: 1px solid white;
+		}
+		&:nth-child(4) {
+			border-bottom: 1px solid white;
+		}
+		&:nth-child(2),
+		&:nth-child(4),
+		&:nth-child(6) {
+			border-right: none;
+		}
+		&:nth-child(5),
+		&:nth-child(6) {
+			border-bottom: none;
+		}
+	}
+} 
+.gardenQuiz-path-btn {
+	display: block;
+	padding: 20px 0 5px;
+	margin: 0;
+	width: 100%;
+	& img {
+		height: 120px;
+		@include transition(all 0.25s 0.25s);
+	}
+	& p {
+		font-size: 14px;
+		padding-top: 30px;
+	}
+	&.selected {
+		background-color: rgba(255,255,255,0.15);
+	}
+	@include respond-to($large-desktop) {
+		& p {
+			font-size: 16px;
+		}
+		& img {
+			min-height: 170px;
+			height: auto;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		padding: 20px 0;
+	}
+	@include respond-to($small-breakpoint) {
+		& img {
+			min-height: 100px;
+			height: 100px;
+		}
+		& p {
+			font-size: 12px;
+			padding-top: 20px;
+		}
+	}
+}
+.gardenQuiz-question {
+	& h4 {
+		border-bottom: 1px solid rgba(255,255,255,0.7);
+		font-size: 32px;
+		padding-bottom: 30px;
+		margin-bottom: 30px;
+		@include respond-to($small-breakpoint) {
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+			font-size: 25px;
+		}
+	}
+}
+.gardenQuiz-choices {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-family: 'Merriweather', serif;
+	font-weight: normal;
+	& li {
+		margin-bottom: 5px;
+	}
+	& .radio {
+		color: white;
+		& label {
+			color: white;
+			text-transform: uppercase;
+			font-size: 20px;
+			padding: 0 0 10px 35px;
+		}
+		& .check {
+			border-color: white;
+			top: 4px;
+		}
+		& input[type=radio]:checked ~ .check {
+			border-color: white;
+			&:before {
+				background-color: white;
+			}
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& li {
+			margin-bottom: 12px;
+		}
+		& .radio {
+			& .check {
+				top: 0;
+			}
+		}
+	}
+}
+.gardenQuiz-questionTwo-col {
+	@include respond-to($medium-breakpoint) {
+		padding-bottom: 40px;
+	}
+}
+#gardenQuiz-stepTwo {
+	display: none;
+}
+.gardenQuiz-next {
+	margin-top: 50px;
+	@include respond-to($medium-breakpoint) {
+		margin-top: 30px;
+	}
+}
+.gardenQuiz-error {
+	font-size: 20px;
+	opacity: 0;
+	@include transition(all 0.25s 0.25s);
+	&.open {
+		opacity: 1;
+		padding: 35px 0 0;
+	}
+}
+.gardenQuiz-loading {
+	display: none;
+	& img {
+		width: 25px;
+	}
+}
+// single garden guide
+.single-guide {
+	& .overviewBanner-box .u-blur {
+		// background-position: -690px -300px;
+  //   	background-size: 1400px;
+  		background-position: 70% 42%;
+    	background-size: 3000px;
+	}
+	& .imageSlider-caption {
+		right: auto;
+    	top: 30px;
+    	bottom: auto;
+    	padding: 30px;
+    	left: 30px;
+    	& h3 {
+    		display: inline-block;
+    		vertical-align: top;
+    		width: 25%;
+    		font-size: 25px;
+    		line-height: 28px;
+    		padding: 0;
+    	}
+    	& p {
+    		display: inline-block;
+    		vertical-align: top;
+    		width: 70%;
+    		font-size: 18px;
+    		line-height: 22px;
+    		padding-left: 25px;
+    	}
+    	& .btn {
+    		width: 70%;
+    		display: block;
+    		float:right;
+    	}
+	}
+	& .imadeSlider-slide .container {
+		min-height: 850px;
+	}
+	& .imageSlider .swiper-button-next, & .imageSlider .swiper-button-prev {
+		top: 50%;
+	}
+	& .imageSlider-caption .u-blur {
+		background-position: -95px -130px;
+	}
+	& .imageSlider-pagination.swiper-pagination-bullets {
+		left: 0;
+    	right: 0;
+    	text-align: center;
+    	width: 100%;
+	}
+	@include respond-to($medium-breakpoint) {
+		& .imageSlider-caption {
+			top: auto;
+			left: 0;
+		}
+		& .overviewBanner-box .u-blur {
+    		background-position: -610px -620px;
+    		background-size: 1500px;
+    	}
+    	& .imageSlider .swiper-button-next, & .imageSlider .swiper-button-prev {
+    		top: 40%;
+    	}
+    	& .imadeSlider-slide .container {
+    		min-height: auto;
+    	}
+	}
+	@include respond-to($small-breakpoint) {
+		& .imadeSlider-slide .container {
+    		min-height: auto;
+    	}
+		& .overviewBanner-box .u-blur {
+    		background-position: -320px -310px;
+    		background-size: 900px;
+    	}
+    	& .imageSlider-caption {
+    		padding: 30px 15px;
+    		& h3 {
+    			font-size: 18px;
+    			line-height: 22px;
+    		}
+    		& p {
+    			font-size: 16px;
+    			line-height: 20px;
+    		}
+    	}
+	}
+	@include respond-to($phone) {
+		& .imageSlider-caption {
+			& h3 {
+				display: block !important;
+				width: 100% !important;
+			}
+			& p {
+				display: block !important;
+				width: 100% !important;
+				padding: 10px 0 0 !important;
+			}
+			& .btn {
+	    		width: 100%;
+	    		display: block;
+	    		float:none;
+	    	}
+		}
+	}
+}
+
+.gardenGuide-title {
+	position: absolute;
+	top: 280px;
+	& img {
+		display: inline-block;
+		vertical-align: top;
+		width: 15%;
+		max-width: 82px;
+		max-height: 150px;
+	}
+	& h1 {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+		bottom: 0;
+		width: 50%;
+		padding-left: 15px;
+		font-size: 58px;
+	}
+	@include respond-to($large-desktop) {
+		& h1 {
+			font-size: 70px;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		& h1 {
+			padding-top: 0;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		position: relative;
+		top: 0;
+		padding-top: 150px;
+		& h1 {
+			font-size: 40px;
+			line-height: 45px;
+		}
+		& img {
+			max-width: 50px;
+		}
+	}
+}
+.overviewBanner-box--gardenGuide {
+	bottom: auto;
+	top: 280px;
+	@include respond-to($medium-breakpoint) {
+		top: auto;
+		bottom: 30px;
+		position: absolute;
+	}
+	@include respond-to($small-breakpoint) {
+		position: relative;
+		bottom: 0;
+		margin: 50px 0 50px;
+	}
+}
+.imageSlider-gardenGuide-path {
+	background-image: url('images/garden-guide-image-slider-path.svg');
+	background-repeat: no-repeat;
+
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    background-size: 2200px;
+    //left: auto;
+    //width: 100%;
+    //background-size: 70%;
+    &.imageSlider-gardenGuide-path--1 {
+    	background-position: left;
+    	left: 30%;
+    	width: 70%;
+    }
+    &.imageSlider-gardenGuide-path--2 {
+    	width: 100%;
+    	background-position: 60%;
+    }
+    &.imageSlider-gardenGuide-path--3 {
+    	background-position: right;
+    	left: 0;
+    	width: 70%;
+    }
+    @include respond-to($medium-breakpoint) {
+    	background-size: 1900px;
+    	height: 80%;
+    }
+    @include respond-to($small-breakpoint) {
+    	background-size: 1000px;
+    	height: 60%;
+    }
+}
+
+.gardenGuide-cta {
+	padding: 50px 0;
+	& .btn {
+		//font-family: 'Merriweather', serif;
+		font-size: 24px !important;
+	}
+	@include respond-to($large-desktop) {
+		padding: 80px 0;
+	}	
+	@include respond-to($medium-breakpoint) {
+		& .gardenGuide-cta-choose {
+			padding-bottom: 15px;
+		}
+		& .gardenGuide-cta-itnerary {
+			margin-top: 15px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& .btn {
+			font-size: 20px !important;
+    		padding: 10px 20px 8px;
+		}
+	}
+}
+.gardenGuide-cta-col {
+	padding: 50px;
+	&:first-child {
+		border-right: 1px solid white;
+	}
+	&.gardenGuide-cta-col:first-child {
+		border: none !important;
+	}
+	@include respond-to($large-desktop) {
+		padding: 50px 100px;
+	}
+	@include respond-to($small-breakpoint) {
+		padding: 30px 0;
+		&:first-child {
+			border-right: none;
+			border-bottom: 1px solid white;
+		}
+	}
+}
+.gardenGuide-cta-pink {
+	background-color: rgba(233, 103, 103, 0.5);
+}

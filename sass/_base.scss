@@ -1,0 +1,680 @@
+$backgroundColor: #eee;
+body {
+	// text styles
+	font-family: $font-tradeRegular;
+	font-size: 16px;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	@include respond-to($small-breakpoint) {
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    background: $backgroundColor;
+}
+.page-container,
+.footer-container,
+.alert-container {
+	max-width: 1400px;
+	margin: 0 auto;
+}
+.main {
+	position: relative;
+}
+section {
+	position: relative;
+}
+.content-wrapper {
+	overflow: hidden;
+}
+.content-wrapper > .wrapper {
+	position: relative;
+}
+
+.parallax-mirror {
+	z-index: 0 !important;
+}
+
+iframe {
+	max-width: 100% !important;
+}
+
+// .pace {
+// 	-webkit-pointer-events: none;
+// 	pointer-events: none;
+
+// 	-webkit-user-select: none;
+// 	-moz-user-select: none;
+// 	user-select: none;
+// 	left: 0;
+// 	background-color: $green;
+// 	position: fixed;
+// 	top: 0;
+// 	right: 0;
+// 	bottom: 0;
+// 	left: 0;
+// 	z-index: 1000;
+// 	opacity: 1;
+// 	 @include transition(all 0.3s 0.3s);
+// }
+
+// .pace-inactive {
+//   // display: none;
+//   opacity: 0;
+//   z-index: 0;
+
+// }
+
+// .pace .pace-progress {
+//   background: $backgroundColor;
+//   position: fixed;
+//   z-index: 2000;
+//   top: 0;
+//   right: 100%;
+//   width: 100%;
+//   height: 8px;
+//   left: 0;
+// }
+
+a {
+	text-decoration: none;
+	cursor: pointer;
+	&:hover {
+		text-decoration: none;
+	}
+}
+img {
+	max-width: 100%;
+}
+.container {
+	max-width: 100% !important;
+}
+.container {
+	width: 100%;
+	padding: 0 30px;
+	@include respond-to($large-desktop) {
+		width: 1250px;
+	}
+	@include respond-to($small-breakpoint) {
+		padding: 0 15px;
+	}
+}
+.row {
+	@include respond-to($small-breakpoint) {
+		margin: 0;
+	}
+}
+.row.row--noMargin {
+	margin: 0;
+}
+
+// Utility Classes 
+.u-center {
+	text-align: center;
+	margin: 0 auto;
+}
+.u-absolute100 {
+	position: absolute;
+	top:0;
+	right:0;
+	left:0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+}
+.u-relative {
+	position: relative;
+	z-index:1;
+}
+.u-verticalCenter {
+	@include vertical-align(absolute);
+}
+// UC - backgrounds
+.u-bgWhite {
+	background-color: white;
+}
+.u-bgGreen {
+	background-color: $green;
+}
+.u-bgPink {
+	background-color: $pink;
+}
+.u-bgImage {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+.u-blur-parent {
+	overflow: hidden;
+	position: relative;
+}
+.u-blur {
+	-webkit-filter: blur(10px);
+	filter: url('/snippets/blur.twig');
+	filter: blur(10px);
+	overflow: hidden;
+	// -webkit-filter: url('#f1'); 
+	// filter: url('#f1');
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 0;
+	background-size: 1400px;
+	background-repeat: no-repeat;
+	margin: -10px -10px -10px -10px;
+	@include respond-to($medium-breakpoint) {
+		background-size: 900px;
+	}
+}
+.u-blur.u-blur--ie {
+	background-image: url() !important;
+	background-color: rgba(0,0,0,0.6);
+}
+.u-blur-content {
+	position: relative;
+	z-index: 2;
+}
+.u-blur-black {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+	background: rgb(05,05,05);
+  	background: rgba(08,08,08,0.3);	
+}
+.js-section-blur-item--half {
+	& div:first-child {
+		height: 50%;
+		top: 0;
+		left: 0;
+		bottom: auto;
+	}
+	& div:last-child {
+		height: 50%;
+		top: auto;
+		left: 0;
+		bottom: 0;
+	}
+}
+.js-blur-item--whiteBottom {
+	background-color: white;
+	background-position: 86% 116%;
+    background-size: 1200px;
+	@include respond-to($large-desktop) {
+		background-position:89% 113%;
+		background-size: 1400px;
+	}
+	@include respond-to($medium-breakpoint) {
+		background-position: 59% 115%;
+    	background-size: 1100px;
+	}
+	@include respond-to($small-breakpoint) {
+		background-position: 58% 82%;
+		background-size: 750px;
+	}
+}
+.u-vh100 {
+	min-height: 90vh;
+}
+.u-noList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.u-largeP {
+	font-size: 22px;
+	line-height: 28px;
+	font-weight: 600;
+	@include respond-to($medium-breakpoint) {
+		font-size: 18px;
+		line-height: 24px;
+	}
+	@include respond-to($small-breakpoint) { 
+		font-size: 16px;
+		line-height: 20px;
+	}
+}
+// UC - text
+.u-textLeft {
+	text-align: left;
+}
+.u-textRight {
+	text-align: right;
+}
+.u-textWhite {
+	color: white;
+}
+.u-textPink {
+	color: $pink;
+}
+.u-textMerri {
+	font-family: 'Merriweather', serif;
+	font-weight: normal;
+}
+.u-textBold {
+	font-family: 'TradeBold';
+	font-weight: normal;
+}
+.u-textCon {
+	font-family: 'TradeCon';
+	font-weight: normal;
+}
+.u-textReg {
+	font-family: 'TradeRegular';
+	font-weight: 600;
+}
+.u-textWhite {
+	color: white;
+}
+.u-textGreen {
+	color: $green;
+}
+.u-textUpper {
+	text-transform: uppercase;
+}
+.u-textShadow {
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+// Headers
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-family: 'Merriweather', serif;
+	font-weight: 800;
+	& a {
+		color: $pink;
+		&:hover {
+			color: $green;
+		}
+	}
+}
+p {
+	margin: 0;
+	font-weight: 600;
+	letter-spacing: -0.01em;
+}
+ul, ol, li {
+	font-weight: 600;
+}
+h1 {
+	font-size: 55px;
+	font-weight: 100;
+	@include respond-to($medium-breakpoint) {
+		font-size: 45px;
+	}
+	@include respond-to($small-breakpoint) {
+		font-size: 35px;
+	}
+}
+h2 {
+	font-size: 50px;
+	font-weight: 100;
+	@include respond-to($small-breakpoint) {
+		font-size: 28px;
+	}
+}
+h3 {
+	font-size: 40px;
+	font-weight: 100;
+	@include respond-to($medium-breakpoint) {
+		font-size: 30px;
+	}
+	@include respond-to($small-breakpoint) {
+		font-size: 22px;
+	}
+}
+h4 {
+	font-size: 24px;
+	font-weight: 100;
+	@include respond-to($small-breakpoint) {
+		font-size: 16px;	
+	}
+}
+h5 {
+	font-size: 20px;
+	font-weight: 100;
+	@include respond-to($small-breakpoint) {
+		font-size: 14px;
+	}
+}
+h6 {
+	font-size: 18px;
+	font-weight: 100;
+	@include respond-to($small-breakpoint) {
+		font-size: 14px;
+	}
+}
+
+// Buttons
+a { @include transition(all 0.15s 0.15s); }
+a,
+a:visited, 
+a:focus, 
+a:hover {
+	text-decoration: none; 
+}
+button {
+	border: none;
+	background: transparent;
+	box-shadow: none;
+	outline: none;
+}
+.btn {
+	background-color: $pink;
+	font-family: $font-tradeCon;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	font-size: 22px;
+	line-height: 22px;
+	//padding: 10px 20px 7px;
+	padding: 13px 20px 10px;
+	color: white;
+	border-radius: 0;
+	position: relative;
+	z-index: 0;
+	border: none;
+	white-space: inherit;
+	//@include transition(all 0.15s 0.15s); 
+	&:after {
+		position: absolute;
+		content: "";
+		width: 100%;
+		height: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -1;
+		background: $green;
+		transition: all 0.3s ease;
+	}
+	&:hover {
+		color: white;
+		&:after {
+			top: 0;
+			height: 100%;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		font-size: 22px;
+		&:hover {
+			&:after {
+				display: none;
+			}
+		}
+		&:after {
+			display: none;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		font-size:14px;
+		padding: 5px 15px 3px;
+	}
+}
+.btn--white {
+	background-color: white;
+	color: $green;
+	&:after {
+		background: $pink;
+	}
+	&:hover {
+		&:after {
+			top: 0;
+			height: 100%;
+		}
+	}
+}
+.btn--whitePink {
+	background-color: white;
+	color: $pink;
+	&:after {
+		background: $green;
+	}
+	&:hover {
+		color: white;
+		&:after {
+			top: 0;
+			height: 100%;
+		}
+	}
+}
+.btn.btn--green {
+	background-color: $green;
+	color: white;
+	&:after {
+		background-color: $pink;
+	}
+}
+.link {
+	text-transform: uppercase;
+	font-family: 'TradeCon';
+	font-size: 18px;
+	letter-spacing: 0.07em;
+	padding: 0.5em 0;
+}
+.link--green {
+	color: $green;
+	&:hover {
+		color: $pink;
+	}
+}
+.link--pink {
+	color: $pink;
+	&:hover {
+		color: $green;
+	}
+}
+.link--arrow {
+	display: block;
+	position: relative;
+	&:after {
+		content: '';
+		background-image: url('images/icon-arrow-right.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		width: 18px;
+		height: 18px;
+		right: 2em;
+		top: 0;
+		bottom: 0;
+		line-height: 18px;
+		@include vertical-align (absolute);
+		@include transition(all 0.15s 0.15s); 
+	}
+	&:hover {
+		&:after {
+			right: 1.5em;
+		}
+	}
+}
+
+input {
+	background-color: white;
+	width: 100%;
+	border: 0;
+	color: $green;
+	font-family: $font-tradeCon;
+	padding: 12px 20px;
+	font-size: 18px;
+	outline: none;
+	font-weight: 500 !important;
+}
+select {
+	-webkit-appearance:none;
+	border: none;
+	background: transparent;
+	border: 1px solid #000;
+	border-radius: 0;
+	outline: none;
+	color: black;
+	& option {
+		color: #000;
+	}
+}
+@mixin form-arrow-btn {
+	position: absolute;
+	width: 50px;
+	height: 20px;
+	display: block;
+	right: 13px;
+	top: 11px;
+	background-position: right;
+	background-image: url('images/icon-arrow-right.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $green;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $green;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: $green;
+}
+
+.checkbox-button,
+.radio {
+	color: $green;
+	display: block;
+	position: relative;
+	width: 100%;
+	& label {
+		display: block;
+		position: relative;
+		font-size: 16px;
+		color: $green;
+		padding: 0 0 10px 25px;
+		margin: 0;
+		z-index: 9;
+		cursor: pointer;
+		@include transition(all 0.15s 0.15s); 
+		&:hover {
+			color: $pink;
+		}
+	}
+	& input[type=checkbox],
+	& input[type=radio] {
+		position: absolute;
+		visibility: hidden;
+	}
+	& .check {
+		display: block;
+		position: absolute;
+		border: 1px solid $green;
+		border-radius: 100%;
+		height: 18px;
+		width: 18px;
+		top: 0;
+		left: 0;
+		z-index: 5;
+		@include transition(all 0.15s 0.15s); 
+	}
+	& .check {
+		&:before {
+			display: block;
+			position: absolute;
+			content: '';
+			border-radius: 100%;
+			height: 12px;
+			width: 12px;
+			top: 1.5px;
+			left: 2px;
+			margin: auto;
+			@include transition(all 0.15s 0.15s); 
+		}
+	}
+	& input[type=checkbox]:checked ~ .check,
+	& input[type=radio]:checked ~ .check {
+		border: 1px solid $green;
+	}
+	& input[type=checkbox]:checked ~ .check::before,
+	& input[type=radio]:checked ~ .check::before {
+		background: $green;
+	}
+}
+b,
+strong {
+	font-family: 'TradeBold';
+}
+
+.generalContent {
+	& h1, & h2, & h3, & h4, & h5, & h6 {
+		margin-bottom: 20px;
+		font-weight: 600;
+	}
+	& p {
+		margin-bottom: 15px;
+		letter-spacing: -0.01em;
+		font-weight: 600 !important;
+	}
+	& span {
+		font-weight: 600 !important;
+	}
+	& b,
+	& strong {
+		font-family: 'TradeBold';
+	}
+	& a {
+		color: $green;
+		font-weight: bold;
+		border-bottom: 1px solid $green;
+		&:hover {
+			color: $pink;
+			border-bottom: none;
+		}
+	}
+	& .btn {
+		margin: 10px 0;
+		border-bottom: none !important;
+		& a {
+			border-bottom: none !important;
+		}
+	}
+	& ul {
+		font-weight: 600;
+		padding-left: 35px;
+		& li {
+			padding-bottom: 10px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& p {
+			font-size: 14px;
+			line-height: 18px;
+		}
+	}
+}
+
+table {
+	border: none;
+	margin: 25px 0;
+}
+table tr,
+table td {
+	border-color: $green;
+	border-width: 2px;
+	padding: 10px;
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background-color: $green;
+}
+
+.newsletter-form {
+	& .error {
+		display: none;
+		padding-top: 10px;
+	}
+}

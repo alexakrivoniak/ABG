@@ -1,0 +1,572 @@
+.home .content-wrapper h1 {
+	color: white;
+	font-size: 70px;
+	line-height: 74px;
+	font-weight: 500;
+	text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+	@include respond-to($small-breakpoint) {
+		font-size: 42px;
+		line-height: 44px;
+	}
+	@include respond-to($phone) {
+		font-size: 35px;
+		line-height: 40px;
+	}
+}
+.home .content-wrapper p {
+	font-size: 24px;
+	line-height: 28px;
+}
+.home .content-wrapper h2 {
+	@extend .u-textMerri;
+	color: white;
+	font-size: 40px;
+	line-height: 45px;
+	font-weight: 700;
+	padding-bottom: 20px;
+	@include respond-to($medium-breakpoint) {
+		font-size: 35px;
+		line-height: 40px;
+	}
+	@include respond-to($small-breakpoint) {
+		font-size: 18px;
+		line-height: 20px;
+	}
+}
+// .home .u-vh100 {
+// 	min-height: 90vh;
+// 	@include respond-to($medium-breakpoint) {
+// 		min-height: 600px;
+// 	}
+// }
+
+.homeBanner {
+	padding-top: 180px;
+	background-position: center;
+	background-size: cover;
+	position: relative;
+	background-repeat: no-repeat;
+	max-height: 1047px;
+	//background-attachment: fixed;
+	& h1 {
+		text-transform: uppercase;
+		font-family: 'TradeCon';
+	}
+	@include respond-to($medium-breakpoint) {
+		max-height: auto;
+	}
+	@include respond-to($small-breakpoint) {
+		padding-top: 100px;
+		& h1 {
+			max-width: 250px
+		}
+	}
+}
+.home .content-wrapper .homeBanner h1 {
+	@include respond-to($large-desktop) {
+		font-size: 88px;
+		line-height: 85px;
+	}
+}
+.homeBanner-wrapper {
+	@include respond-to($medium-breakpoint) {
+		min-height: 700px;
+	}
+	@include respond-to($small-breakpoint) {
+		min-height: 400px;
+	}
+}
+.homeBanner-content {
+	@include vertical-align(absolute);
+	opacity: 0;
+	top: 60%;
+	@include transition(all 0.8s 0.8s);
+	& .btn {
+		margin-top: 20px;
+		opacity: 0;
+		@include transition(all 0.6s 0.6s);
+		&.animate {
+			opacity: 1;
+		}
+	}
+	&.animate {
+		top: 45%;
+		opacity: 1;
+	}
+	@include respond-to($small-breakpoint) {
+		@include remove-vertical-align();
+		padding: 60px 20px;
+	}
+}
+
+.homeEvents {
+	& .homeSection-wrapper {
+		@include respond-to($medium-breakpoint) {
+			min-height: 600px;
+		}
+		@include respond-to($small-breakpoint) {
+			min-height: auto;
+			padding-top: 150px;
+		}
+	}
+}
+.homeEvents-box {
+	position: absolute;
+	right: 0;
+	top: -200px;
+	@include respond-to($medium-breakpoint) {
+		left: 0;
+		margin: 0 auto;
+	}
+	@include respond-to($small-breakpoint) {
+		top: -80px;
+	}
+}
+.homeEvents .js-section-blur-item--half {
+	& div:first-child {
+		height: 48%;
+		background-position: -470px bottom;
+		background-size: 1400px;
+		@include transition(all 1s 1s);
+	}
+	& div:last-child {
+		height: 52%;
+		background-position: -930px 0;
+		background-size: 1700px;
+		@include transition(all 1s 1s);
+	}
+	@include respond-to($large-desktop) {
+		& div:first-child {
+			height: 54%;
+			background-position: -750px bottom;
+		}
+		& div:last-child {
+			height: 46%;
+			background-position: -785px 0;
+			background-size: 1400px;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		& div:first-child {
+			height: 68.5%;
+			background-position: -490px -830px;
+			background-size: 1500px;
+		}
+		& div:last-child {
+			height: 31.5%;
+			background-position: -470px 0;
+			background-size: 1500px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& div:first-child {
+			height: 46%;
+			background-position: -300px 99%;
+			background-size: 900px;
+		}
+		& div:last-child {
+			height: 54%;
+			background-position: -190px 0;
+			background-size: 700px;
+		}
+	}
+}
+// .homeEvents-box.parallax .js-section-blur-item--half {
+// 	& div:first-child {
+// 		height: 66%;
+// 	}
+// 	& div:last-child {
+// 		height: 34%;
+// 	}
+// }
+.homeEvents-boxes {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 95%;
+	bottom: 300px;
+	border: 1px solid white;
+	margin: 0 auto;
+	opacity: 0;
+	& .u-blur {
+		margin: 0;
+		background-position: -180px -580px;
+	}
+	@include respond-to($extra-large-desktop) {
+		width: 100%;
+		& .u-blur {
+			background-position: -125px -580px;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		border: none;
+		& .u-blur {
+			background-size: 1250px;
+			background-position: -260px -370px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		position: relative;
+		bottom: auto;
+		top: auto;
+		width: 100%;
+		& .u-blur {
+			background-size: 700px;
+			background-position: -150px -100px;
+		}
+	}
+}
+.homeEvents-boxes-wrapper {
+	@include respond-to($medium-breakpoint) {
+		position: relative;
+		margin-bottom: 40px;
+		border-left: 1px solid white;
+		border-right: 1px solid white;
+	}
+	@include respond-to($small-breakpoint) {
+		margin-bottom: 60px;
+	}
+}
+.homeEvents-boxes-pagination {
+	@include respond-to($medium-breakpoint) {
+		left: 0;
+		right: 0;
+		bottom: -40px;
+		text-align: center;
+	}
+}
+.homeEvent {
+	padding: 0 0 40px;
+	border-right: 1px solid white;
+	&:last-child {
+		border-right: 0;
+	}
+	&.homeEvent--4 {
+		width: 25%;
+	}
+	&.homeEvent--3 {
+		width: 33.3%;
+	}
+	&.homeEvent--2 {
+		width: 50%;
+	}
+	&.homeEvent--1 {
+		width: 100%;
+	}
+	@include respond-to($medium-breakpoint) {
+		border-top: 1px solid white;
+		border-bottom: 1px solid white;
+		width: 50%;
+		&.homeEvent--4 {
+			width: 50%;
+		}
+		&.homeEvent--3 {
+			width: 33.3%;
+		}
+		&.homeEvent--2 {
+			width: 50%;
+		}
+		&.homeEvent--1 {
+			width: 100%;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		width: 80%;
+		&.homeEvent--4 {
+			width: 80%;
+		}
+		&.homeEvent--3 {
+			width: 80%;
+		}
+		&.homeEvent--2 {
+			width: 80%;
+		}
+		&.homeEvent--1 {
+			width: 80%;
+		}
+	}
+}
+.home .homeEvent-date {
+	border-bottom: 1px solid white;
+	padding: 10px 15px;
+	& p {
+		font-size: 18px;
+	}
+}
+.homeEvent-content {
+	padding: 15px;
+	& a {
+		& h4 {
+			font-size: 26px;
+			line-height: 34px;
+			font-weight: 600;
+			@include transition(all 0.15s 0.15s);
+		}
+		&:hover {
+			& h4 {
+				color: $pink;
+			}
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& a h4 {
+			font-size: 22px;
+			line-height: 30px;
+		}
+	}
+}
+.home .content-wrapper p.homeEvent-content-location {
+	padding: 18px 0;
+	position: relative;
+	font-size: 18px;
+	letter-spacing: 0.05em;
+	&:before {
+		content: '';
+		background-image: url('images/icon-location.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		display: inline-block;
+		vertical-align: top;
+		margin: 2px 5px 0 0;
+		width: 15px;
+		height: 15px;
+	}
+	@include respond-to($small-breakpoint) {
+		font-size: 14px;
+		&:before {
+			width: 13px;
+			height: 13px;
+			margin: 0 5px 0 0;
+		}
+	}
+}
+.homeEvent-btn {
+	position: absolute;
+	left: 0;
+	right: 0;
+	width: 100%;
+	bottom: 0;
+	border-top: 1px solid white;
+	padding: 10px;
+	font-size: 18px;
+	display: block;
+	&:after {
+		content: '';
+		background-image: url('images/icon-arrow-right-white.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		display: block;
+		position: absolute;
+		right: 15px;
+		top: 15px;
+		width: 15px;
+		height: 15px;
+		@include transition(all 0.15s 0.15s);
+	}
+	&:hover {
+		color: white;
+		color: $green;
+		background-color: rgba(255,255,255,0.8);
+		&:after {
+			right: 10px;
+			background-image: url('images/icon-arrow-right-green.svg');
+		}
+	}
+}
+.homeEvents-calendar-btn {
+	padding: 40px 0;
+	@include respond-to($medium-breakpoint) {
+		padding: 20px 0;
+	}
+}
+
+.home .content-wrapper p {
+	font-size: 18px;
+	line-height: 22px;
+	@include respond-to($small-breakpoint) {
+		font-size: 14px;
+		line-height: 16px;
+	}
+}
+
+.home-blurBox {
+	max-width: 630px;
+	width: 45%;
+	@include respond-to($medium-breakpoint) {
+		width: 70%;
+	}
+	@include respond-to($small-breakpoint) {
+		width: 80%;
+	}
+}
+.home-blurBox-content {
+	padding: 80px 60px;
+	& .btn {
+		margin-top: 20px;
+	}
+	@include respond-to($medium-breakpoint) {
+		padding: 50px;
+	}
+	@include respond-to($small-breakpoint) {
+		padding: 20px;
+	}
+}
+
+.homeSection-wrapper {
+	height: 100vh;
+	min-height: 800px;
+	position: relative;
+	@include respond-to($medium-breakpoint) {
+		min-height: 800px;
+		height: 60vh;
+	}
+	@include respond-to($small-breakpoint) {
+		min-height: 450px;
+		height: auto;
+	}
+}
+
+.homeImage {
+	@include respond-to($small-breakpoint) {
+		padding-bottom: 80px;
+	}
+}
+.homeImage-content {
+	top: 35%;
+	opacity: 0;
+	@include transition(all 0.3s 0.3s);
+	& .btn {
+		margin-top: 20px;
+	}
+	@include respond-to($medium-breakpoint) {
+		top: 30%;
+		& h1 {
+			padding-right: 0;
+		}
+	}
+}
+.homeImage-box {
+	position: absolute;
+	right: 0;
+	bottom: -70px;
+	&.noBottom {
+		bottom: 40px;
+	}
+	@include respond-to($medium-breakpoint) {
+		right: 10%;
+		&.noBottom {
+			bottom: 30px;
+			left: 0;
+			right: 0;
+			margin: 0 auto;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		bottom: -30px;
+		right: 10px;
+		&.noBottom {
+			bottom: -30px;
+		}
+	}
+	@include respond-to($phone) {
+		&.noBottom {
+			bottom: -50px;
+		}
+	}
+}
+// .homeImage-box.parallax .js-blur-item--whiteBottom {
+// 	background-position: 89% 100%;
+// 	@include transition(all 1s 1s);
+// }
+
+.blurBox--noBottom .homeImage-box {
+	& .u-blur {
+		background-position: 98% 98%;
+	}
+	@include respond-to($large-desktop) {
+		& .u-blur {
+			background-position: 90% 68%;
+		}
+	}
+	@include respond-to($medium-breakpoint) {
+		& .u-blur {
+			background-position: 51% 99%;
+			background-size: 1000px;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& .u-blur {
+			background-position: 51% 86%;
+			background-size: 700px;
+		}
+	}
+}
+
+.alert {
+	margin: 0;
+	position: relative;
+	z-index: 100;
+	padding: 0;
+	& .alert-container {
+		padding: 25px 0 18px;
+		border-bottom: 1px solid white;
+	}
+}
+.alert-icon {
+	& svg {
+		max-width: 35px;
+		max-height: 35px;
+		& path {
+			fill: white;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		max-width: 25px;
+		max-height: 25px;
+		margin-bottom: 15px;
+	}
+}
+.alert-content {
+	color: white;
+	& h4 {
+		font-size: 18px;
+		padding-bottom: 5px;
+	}
+	& .generalContent {
+		color: white;
+		font-size: 14px;
+		line-height: 18px;
+		column-count: 2;
+	}
+	& a {
+		color: white;
+		border-bottom: 1px solid white;
+		&:hover {
+			color: $pink;
+			border-bottom-color: $pink;
+		}
+	}
+	@include respond-to($small-breakpoint) {
+		& h4 {
+			font-size: 16px;
+		}
+		& .generalContent {
+			font-size: 13px;
+			column-count: 1;
+		}
+	}
+}
+.alert-close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 15px;
+	height: 15px;
+	display: block;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-image: url('images/icon-menu-close.svg');
+	@include respond-to($small-breakpoint) {
+		top: -10px;
+	}
+}
