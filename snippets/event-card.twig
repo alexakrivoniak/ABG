@@ -1,0 +1,57 @@
+{% if is_white is not defined %}
+	{% set is_white = 'false' %}
+{% endif %}
+{% if is_home is not defined %}
+	{% set is_home = 'false' %}
+{% endif %}
+{% if loop_length is not defined %}
+	{% set loop_length = loop.length %}
+{% endif %}
+<div class="
+	{% if is_home == 'true' %} 
+		homeEvent 
+			{% if loop_length == 4 %} 
+				homeEvent--4
+			{% elseif loop_length == 3 %} 
+				homeEvent--3
+			{% elseif loop_length == 2 %} 
+				homeEvent--2
+			{% else %}
+				homeEvent--1
+			{% endif %}
+	{% else %} 
+		eventCard 
+	{% endif %} u-relative swiper-slide">
+	<div class="{% if is_home == 'true' %}homeEvent-date{% else %}eventCard-date{% endif %}">
+		{% set event_start_date = function('tribe_get_start_date', item.ID, false, 'F d', null) %}
+		{% set event_end_date = function('tribe_get_end_date', item.ID, false, 'F d', null) %}
+		{% set recurring_event = function('tribe_is_recurring_event', item.ID) %}
+		{% if recurring_event %}
+			<p class="{% if is_white == 'true' %}u-textWhite{% else %}u-textGreen{% endif %} u-textCon">{{ event_start_date }}</p>
+		{% else %}
+			{% if event_start_date == event_end_date %}
+				<p class="{% if is_white == 'true' %}u-textWhite{% else %}u-textGreen{% endif %} u-textCon">{{ event_start_date }}</p>
+			{% else %}
+			<!-- time is F d g:i a -->
+				{% set event_start_date = function('tribe_get_start_date', item.ID, false, 'F d', null) %}
+				{% set event_end_date = function('tribe_get_end_date', item.ID, false, 'F d', null) %}
+				<p class="{% if is_white == 'true' %}u-textWhite{% else %}u-textGreen{% endif %}  u-textCon">{{ event_start_date }} - {{ event_end_date }}</p>
+			{% endif %}
+		{% endif %}
+	</div>
+	<div class="{% if is_home == 'true' %}homeEvent-content{% else %}eventCard-content{% endif %}">
+		<a href="{{ function('get_permalink', item.ID) }}"><h4 class="{% if is_white == 'true' %}u-textWhite{% else %}u-textGreen{% endif %} ">{{ item.post_title }}</h4></a>
+
+		{% set location = function('wp_get_post_terms', item.ID, 'city') %}
+		{% for term in location %}
+			<p class="{% if is_white == 'true' %}u-textWhite{% else %}u-textGreen{% endif %}  u-textCon u-textUpper {% if is_home == 'true' %}homeEvent-content-location{% else %}eventCard-content-location{% endif %}">{{ term.name }}</p>
+		{% endfor %}
+
+		{% if item.event_description %}
+			<p class="{% if is_white == 'true' %}u-textWhite{% else %}u-textGreen{% endif %}  u-textReg">{{ item.event_description|length > 80 ? item.event_description|slice(0, 80) ~ '...' : item.event_description }}</p>
+		{% endif %}
+	</div>
+	<a href="{{ function('get_permalink', item.ID) }}" class="{% if is_home == 'true' %}homeEvent-btn{% else %}eventCard-btn{% endif %} {% if is_white == 'true' %}u-textWhite {% else %}u-textGreen {% endif %}u-textCon u-textUpper">
+		Learn More
+	</a>
+</div>

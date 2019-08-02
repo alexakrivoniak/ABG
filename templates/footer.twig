@@ -1,0 +1,105 @@
+<div class="footer-container">
+	<footer class="footer u-bgGreen">
+		<div class="container">
+			<div class="footer-wrapper row">
+				<div class="col-md-2 footer-logo-wrapper">
+					<a href="/" class="footer-logo"><img src="{{ Image(footer_logo).src }}" alt="Footer Logo" class="visible-lg visible-md"><img src="{{ Image(footer_logo_mobile).src }}" alt="Footer Logo Mobile" class="hidden-lg hidden-md"></a>
+					{% if apga_footer_logo %}
+						<a href="https://www.publicgardens.org/" class="footer-logo--other" target="_blank"><img src="{{ Image(apga_footer_logo).src }}" alt="APGA Logo"></a>
+					{% endif %}
+				</div>
+				<div class="col-md-4 footer-main-wrapper">
+					<div class="footer-form hidden-xs hidden-sm">
+						{% if mailing_list_title %}<h4 class="u-textWhite">{{ mailing_list_title }}</h4>{% endif %}
+						{% include 'snippets/newsletter-form.twig' %}
+					</div>
+					<div class="footer-nav footer-menu">
+						{% include "menu.twig" with {'menu': main_footer.get_items} %}
+					</div>
+					<div class="footer-social hidden-sm hidden-xs">
+						{% if company_instagram %}<a href="{{ company_instagram }}" class="footer-social-link" target="_blank">
+							<div class="footer-social-icon footer-social-icon--instagram">
+							</div>
+							</a>{% endif %}
+						{% if company_twitter %}<a href="{{ company_twitter }}" class="footer-social-link" target="_blank">
+							<div class="footer-social-icon footer-social-icon--twitter">
+							</div>
+							</a>{% endif %}
+						{% if company_pinterest %}<a href="{{ company_pinterest }}" class="footer-social-link" target="_blank">
+							<div class="footer-social-icon footer-social-icon--pinterest">
+							</div>
+							</a>{% endif %}
+						{% if company_facebook %}<a href="{{ company_facebook }}" class="footer-social-link" target="_blank">
+							<div class="footer-social-icon footer-social-icon--facebook">
+							</div>
+							</a>{% endif %}
+						{% if company_youtube %}<a href="{{ company_youtube }}" class="footer-social-link" target="_blank">
+							<div class="footer-social-icon footer-social-icon--youtube">
+							</div>
+							</a>{% endif %}
+					</div>
+					<div class="footer-copyright hidden-xs hidden-sm">
+						<h6 class="u-textWhite">{{ footer_copyright }}</h6>
+					</div>
+				</div>
+				<div class="col-md-2 footer-subNav-wrapper">
+					<div class="footer-subNav footer-menu">
+						{% include "menu.twig" with {'menu': sub_footer.get_items} %}
+					</div>
+				</div>
+				<div class="col-md-4 footer-info-wrapper">
+					<div class="row">
+						<div class="col-md-6 col-sm-6 col-xs-6 footer-info">
+							<h4 class="u-textWhite">Atlanta</h4>
+							<p class="footer-info-address u-textWhite">{{ atlanta_address }}</p>
+							<a href="tel:{{ atlanta_phone }}" class="u-textWhite">{{ atlanta_phone }}</a>
+							{% include 'snippets/times.twig' with {'include_times': 'Atlanta', 'section': 'footer'} %}
+						</div>
+						<div class="col-md-6 col-sm-6 col-xs-6 footer-info">
+							<a href="/gainesville-garden/" style="text-decoration: none; color: white;"><h4 class="u-textWhite">Gainesville</h4></a>
+							<p class="footer-info-address u-textWhite">{{ gainesville_address }}</p>
+							<a href="tel:{{ gainesville_phone }}" class="u-textWhite">{{ gainesville_phone }}</a>
+							{% include 'snippets/times.twig' with {'include_times': 'Gainesville', 'section': 'footer'} %}
+						</div>
+					</div>
+				</div>
+				<div class="footer-mobile-connect visible-sm visible-xs">
+					<div class="row">
+						<div class="footer-form col-sm-6">
+							{% if mailing_list_title %}<h4 class="u-textWhite">{{ mailing_list_title }}</h4>{% endif %}
+							<div class="footer-form-input">
+								<input type="email" name="email" placeholder="Enter email address">
+								<button type="submit" class="footer-form-submit"></button>
+							</div>
+						</div>
+						<div class="footer-social col-sm-6">
+							{% if company_instagram %}<a href="{{ company_instagram }}" class="footer-social-link" target="_blank">
+								<div class="footer-social-icon footer-social-icon--instagram">
+								</div>
+								</a>{% endif %}
+							{% if company_twitter %}<a href="{{ company_twitter }}" class="footer-social-link" target="_blank">
+								<div class="footer-social-icon footer-social-icon--twitter">
+								</div>
+								</a>{% endif %}
+							{% if company_pinterest %}<a href="{{ company_pinterest }}" class="footer-social-link" target="_blank">
+								<div class="footer-social-icon footer-social-icon--pinterest">
+								</div>
+								</a>{% endif %}
+							{% if company_facebook %}<a href="{{ company_facebook }}" class="footer-social-link" target="_blank">
+								<div class="footer-social-icon footer-social-icon--facebook">
+								</div>
+								</a>{% endif %}
+							{% if company_youtube %}<a href="{{ company_youtube }}" class="footer-social-link" target="_blank">
+								<div class="footer-social-icon footer-social-icon--youtube">
+								</div>
+								</a>{% endif %}
+						</div>
+					</div>
+					<div class="footer-copyright">
+						<h6 class="u-textWhite">{{ footer_copyright }}</h6>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>

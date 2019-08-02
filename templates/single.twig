@@ -1,0 +1,77 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	
+	{% if post.banner_background_image %}
+		<section class="subpageBanner u-bgImage js-header-blur-img js-parallax-window" data-section-img="{{ Image(post.banner_background_image).src }}"></section>
+	{% else %}
+		{% if postType == 'private-event-rental' %}
+			<section class="subpageBanner u-bgImage js-header-blur-img js-parallax-window"  data-section-img="{{ Image(default_private_eventsrentals_banner_image).src }}"></section>
+		{% else %}
+			<section class="subpageBanner u-bgImage js-header-blur-img js-parallax-window" data-section-img="{{ Image(default_overview_details_banner_image).src }}"></section>
+		{% endif %}
+	{% endif %}
+
+	<section class="subpageMain u-bgGreen">
+		<div class="container">
+			<div class="subpageMain-wrapper u-bgWhite">
+				{% if post.include_breadcrumb_link %}
+					{% if post.parent %}
+						<a href="{{ post.parent.link }}" class="subpageMain-breadcrumb link link--pink link--arrow">{{ post.parent.title }}</a>
+					{% else %}
+						{% if post.include_custom_breadcrumb_link %}
+							<a href="{{ post.custom_breadcrumb_link }}" class="subpageMain-breadcrumb link link--pink link--arrow">{{ post.custom_breadcrumb_text }}</a>
+						{% else %}
+							{% if postType == 'art-collection' %}
+								<a href="/plan-your-visit/art-collections/" class="subpageMain-breadcrumb link link--pink link--arrow">Art Collections</a>
+							{% elseif postType == 'map-location' %}
+								{% for item in city %}
+									{% if item.title == 'Atlanta' %}
+										<a href="/plan-your-visit/atlanta-garden-map/" class="subpageMain-breadcrumb link link--pink link--arrow">Back to Atlanta Map</a>
+									{% else %}
+										<a href="/gainesville-garden/gainesville-garden-map/" class="subpageMain-breadcrumb link link--pink link--arrow">Back to Gainesville Map</a>
+									{% endif %}
+								{% endfor %}
+							{% elseif postType == 'private-event-rental' %}
+								{% set eventCat = post.terms('events-rentals-category') | join(', ') %}
+								{% if eventCat == 'Gainesville' %}
+									<a href="/gainesville-garden/gainesville-private-events-rentals/" class="subpageMain-breadcrumb link link--pink link--arrow">Back to Private Events &amp; Rentals</a>
+								{% else %}
+									<a href="/events-exhibitions/private-events-rentals/" class="subpageMain-breadcrumb link link--pink link--arrow">Back to Private Events &amp; Rentals</a>
+								{% endif %}
+							{% endif %}
+						{% endif %}
+					{% endif %}
+				{% endif %}
+
+				{% if post.page_title %}
+					<h1 class="u-textGreen">{{ post.page_title }}</h1>
+				{% else %}
+					<h1 class="u-textGreen">{{ post.title }}</h1>
+				{% endif %}
+				{% if post.index_details_content %}
+					<div class="subpageMain-content generalContent u-textGreen u-largeP">
+						{{ post.index_details_content }}
+					</div>
+				{% endif %}
+
+				{% if post.two_column_index_details %}
+					<div class="subpageMain-columns row">
+						{% for item in post.get_field('two_column_index_details') %}
+							<div class="col-md-6 col-sm-6 subpageMain-col">
+								<h2 class="u-textGreen">{{ item.column_title }}</h2>
+								<div class="subpageMain-col-content generalContent u-textGreen u-largeP">
+									{{ item.column_content }}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+
+	{% include 'modules/subpage-modules.twig' %}
+	
+	
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "base.twig" %}
+{% block content %}
+	
+	{% if post.include_pdf_instead_of_map %}
+		<section class="gardenMap-pdf u-bgImage" style="background-image:url({{ Image(post.map_image_background).src }});">
+			<div class="container">
+				<div class="gardenMap-pdf-box u-blur-parent">
+					<div class="u-blur-black"></div>
+					<div class="u-blur-content">
+						<h3 class="u-textWhite">Explore {{ post.title }}</h3>
+						<p class="u-textWhite">{{ post.map_pdf_box_text }}</p>
+						<a href="{{ file_url }}" target="_blank" class="btn">Download Map PDF</a>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% else %}
+		<section class="gardenMap js-garden-map" 
+			id="js-garden-map" 
+			data-lat="{{ post.google_map_lat }}" 
+			data-long="{{ post.google_map_long }}"
+			data-mobile-lat="{{ post.mobile_google_map_lat }}"
+			data-mobile-long="{{ post.mobile_google_map_long }}">
+		</section>
+		<div class="gardenMap-overlay">
+			<div class="gardenMap-overlay-content">
+				<p>Back to Map</p>
+			</div>
+		</div>
+		{% if markers %}
+			<div class="gardenMap-markers" data-icon="{{ theme.link }}/images/icon-map-marker-pink.svg" data-icon-hover="{{ theme.link }}/images/icon-map-marker-green.svg">
+				{% for item in markers %}
+					<div class="gardenMap-marker" 
+						{% if item.marker_name %}
+							data-marker-name="{{ item.marker_name }}" 
+						{% else %}
+							data-marker-name="{{ item.title }}" 
+						{% endif %}
+						data-marker-lat="{{ item.marker_lat }}" 
+						data-marker-long="{{ item.marker_long }}" 
+						{% set gardenType = function('wp_get_post_terms', item.ID, 'type-of-location') %}
+						{% if gardenType %}
+							{% for term in gardenType %}
+									data-type-garden="{{ term.slug }}" 
+							{% endfor %} 
+						{% else %}
+							data-type-garden="none" 
+						{% endif %}>	
+					</div>
+					<div class="gardenMap-infoWindow" 
+					{% if item.marker_name %}
+						data-infowindow="{{ item.marker_name|replace({' ': '-'})|lower }}" 
+					{% else %}
+						data-infowindow="{{ item.title|replace({' ': '-'})|lower }}" 
+					{% endif %} >
+						<div class="gardenMap-infoWindow-wrapper">
+							<div class="gardenMap-infoWindow-img u-bgImage" style="background-image: url('{{ item.thumbnail.src }}');"></div>
+							<div class="gardenMap-infoWindow-content">
+								{% if item.map_box_headline %}
+									<h2 class="u-textGreen js-strip-br">{{ item.map_box_headline }}</h2>
+								{% else %}
+									<h2 class="u-textGreen js-strip-br">{{ item.title }}</h2>
+								{% endif %}
+								<p class="u-textGreen u-largeP">{{ item.map_box_description }}</p>
+								{% if item.marker_name %}
+									<a href="{{ item.link }}" class="link link--green link--arrow">Visit {{ item.marker_name }}</a>
+								{% else %}
+									<a href="{{ item.link }}" class="link link--green link--arrow">Visit {{ item.title }}</a>
+								{% endif %}
+							</div>
+						</div>
+						<button class="gardenMap-infoWindow-btn"><img src="{{ theme.link }}/images/icon-close-green.svg" alt="X"></button>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		{% if post.include_map_filters %}
+			<div class="gardenMap-filters u-bgGreen">
+				<div class="row">
+					<div class="col-md-1 gardenMap-filter-col">
+						<p class="u-textWhite">Show:</p>
+					</div>
+					<div class="col-md-4 gardenMap-filter-col">
+						<div class="gardenMap-filter">
+							<input type="checkbox" id="indoor-collection" name="selector" data-value="indoor">
+						    <label for="indoor-collection">Indoor Collections</label>
+						    <div class="check"></div>
+						</div>
+						<div class="gardenMap-filter">
+							<input type="checkbox" id="gardens" name="selector" data-value="gardens">
+						    <label for="gardens">Gardens</label>
+						    <div class="check"></div>
+						</div>
+					</div>
+					<div class="col-md-4 gardenMap-filter-col">
+						<div class="gardenMap-filter">
+							<input type="checkbox" id="outdoor-collection" name="selector" data-value="outdoor">
+						    <label for="outdoor-collection">Outdoor Collections</label>
+						    <div class="check"></div>
+						</div>
+						<div class="gardenMap-filter">
+							<input type="checkbox" id="dining" name="selector" data-value="dining">
+						    <label for="dining">Dining</label>
+						    <div class="check"></div>
+						</div>
+					</div>
+					<div class="col-md-2 gardenMap-filter-col">
+						<div class="gardenMap-filter">
+							<input type="checkbox" id="kids" name="selector" data-value="kids">
+						    <label for="kids">Kids</label>
+						    <div class="check"></div>
+						</div>
+						<div class="gardenMap-filter">
+							<input type="checkbox" id="all" name="selector" data-value="all">
+						    <label for="all">All</label>
+						    <div class="check"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	{% endif %}
+
+	{% include 'modules/subpage-modules.twig' %}
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	{% if post.remove_leaf_animation == false %}
+		{% include 'modules/home-leaves.twig' %}
+	{% endif %}
+
+	<section class="homeBanner u-bgImage 
+		{% if post.include_video_instead_of_image %} 
+			js-background-video 
+		{% else %}
+			js-header-blur-img 
+			js-parallax-window
+		{% endif %}" 
+		{% if post.include_video_instead_of_image %}
+		{% else %}
+			style="background-image:url({{ Image(post.intro_banner_background_image).src }});" data-section-img="{{ Image(post.intro_banner_background_image).src }}"
+		{% endif %} id="section1">
+		{% if post.include_video_instead_of_image %}
+			<div class="fullscreen-video-bg element-with-video-bg jquery-background-video-wrapper {% if post.intro_banner_background_mobile_video %} hidden-xs hidden-sm {% endif %}" data-vide-options="loop: true, muted: true, position: center">
+				<video class="jquery-background-video" loop autoplay muted playsinline poster="{{ Image(post.intro_banner_background_video_image).src }}" data-vide-options="loop: true, muted: true, position: center">
+					<source src="{{ post.get_field('intro_banner_background_video').url }}" type="video/mp4">
+					<source src="{{ post.get_field('intro_banner_background_video_webm').url }}" type="video/webm">
+					<source src="{{ post.get_field('intro_banner_background_video_ogv').url }}" type="video/ogg">
+				</video>
+			</div>
+			{% if post.intro_banner_background_mobile_video %}
+				<div class="fullscreen-video-bg element-with-video-bg jquery-background-video-wrapper visible-xs visible-sm" data-vide-options="loop: true, muted: true, position: center">
+					<video class="jquery-background-video" loop autoplay muted playsinline poster="{{ Image(post.intro_banner_background_video_image).src }}" data-vide-options="loop: true, muted: true, position: center">
+						<source src="{{ post.get_field('intro_banner_background_mobile_video').url }}" type="video/mp4">
+						<source src="{{ post.get_field('intro_banner_background_mobile_video_webm').url }}" type="video/webm">
+						<source src="{{ post.get_field('intro_banner_background_mobile_video_ogv').url }}" type="video/ogg">
+					</video>
+				</div>
+			{% endif %}
+		{% endif %}
+		<div class="container">
+			<div class="row homeBanner-wrapper u-vh100">
+				<div class="homeBanner-content">
+					<h1>{{ post.intro_banner_headline }}</h1>
+					{% if post.intro_button_text %}
+						<a href="{{ post.intro_button_link }}" class="btn">{{ post.intro_button_text }}</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+ {% include 'modules/home-sections.twig' %}
+	
+{% endblock %}

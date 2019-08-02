@@ -1,0 +1,22 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<section class="subpageBanner u-bgImage js-header-blur-img" style="background-image:url({{ Image(post.banner_background_image).src }});" data-section-img="{{ Image(post.banner_background_image).src }}"></section>
+
+	<section class="subpageMain u-bgGreen">
+	<div class="container">
+		<div class="subpageMain-wrapper u-bgWhite">
+			{% if post.include_breadcrumb_link %}
+				<a href="{{ post.parent.link }}" class="subpageMain-breadcrumb link link--pink link--arrow">{{ post.parent.title }}</a>
+			{% endif %}
+			<h1 class="u-textGreen">{{ post.title }}</h1>
+			{% if post.content %}
+				<div class="subpageMain-content generalContent u-textGreen u-largeP">
+					{{ post.content }}
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+{% endblock %}

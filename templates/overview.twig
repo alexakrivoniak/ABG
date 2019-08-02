@@ -1,0 +1,106 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	<section class="overviewBanner js-section-blur u-bgImage js-header-blur-img
+	{% if post.include_video_background_instead_of_image %} 
+		js-background-video 
+	{% else %}
+		js-header-blur-img 
+	{% endif %}" 
+	{% if post.include_video_background_instead_of_image %} 
+	{% else %}
+		style="background-image:url({{ Image(post.banner_background_image).src }});" data-section-img="{{ Image(post.banner_background_image).src }}"
+	{% endif %}>
+
+		{% if post.include_video_background_instead_of_image %}
+			<div class="fullscreen-video-bg element-with-video-bg jquery-background-video-wrapper {% if post.banner_background_video_mp4_mobile %} hidden-xs hidden-sm {% endif %}">
+				<video class="jquery-background-video" loop autoplay muted playsinline poster="{{ Image(post.banner_background_video_image).src }}">
+					<source src="{{ post.get_field('banner_background_video_mp4').url }}" type="video/mp4">
+					<source src="{{ post.get_field('banner_background_video_webm').url }}" type="video/webm">
+					<source src="{{ post.get_field('banner_background_video_ogv').url }}" type="video/ogg">
+				</video>
+			</div>
+			{% if post.banner_background_video_mp4_mobile %}
+				<div class="fullscreen-video-bg element-with-video-bg jquery-background-video-wrapper visible-xs visible-sm">
+					<video class="jquery-background-video" loop autoplay muted playsinline poster="{{ Image(post.banner_background_video_image).src }}">
+						<source src="{{ post.get_field('banner_background_video_mp4_mobile').url }}" type="video/mp4">
+						<source src="{{ post.get_field('banner_background_video_webm_mobile').url }}" type="video/webm">
+						<source src="{{ post.get_field('banner_background_video_ogv_mobile').url }}" type="video/ogg">
+					</video>
+				</div>
+			{% endif %}
+		{% endif %}
+		<div class="container u-relative">
+			<div class="row overviewBanner-wrapper u-vh100 u-relative">
+				{% if garden_guide == true %}
+					<div class="gardenGuide-title">
+						<img src="{{ Image(post.icon).src }}" alt="{{ post.title }} Icon">
+						<h1 class="u-textWhite u-textShadow">{{ post.title }}</h1>
+					</div>
+				{% else %}
+					{% if post.banner_title %}
+						<h1 class="overviewBanner-title u-textWhite u-textShadow">{{ post.banner_title }}</h1>
+					{% else %}
+						<h1 class="overviewBanner-title u-textWhite u-textShadow">{{ post.title }}</h1>
+					{% endif %}
+				{% endif %}
+				{% if post.content_box %}
+					<div class="overviewBanner-box u-blur-parent {% if garden_guide == true %} overviewBanner-box--gardenGuide {% endif %}">
+						<div class="u-blur-black"></div>
+						<div class="u-blur js-section-blur-item"></div>
+						<div class="overviewBanner-box-content u-blur-content">
+							<div class="u-textWhite generalContent">
+								{{ post.content_box }}
+								{% if post.include_hours_in_content_box %}
+									{% include 'snippets/times.twig' with {'include_times': post.which_location, 'section': 'overview'} %}
+									{% if post.hours_content_box %}
+										<p class="overviewBanner-box-hours u-textWhite u-textCon">{{ post.hours_content_box }}</p>
+									{% endif %}
+								{% endif %}
+							</div>
+							{% if post.content_box_button_text %}
+								<a href="{{ post.content_box_button_link }}" class="btn">{{ post.content_box_button_text }}</a>
+							{% endif %}
+						</div>
+					</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+
+	{% include 'modules/subpage-modules.twig' %}
+
+	{% if garden_guide %}
+		<section class="gardenGuide-cta">
+			{% if post.itinerary_banner_image %}
+				<div class="u-bgImage u-absolute100 gardenGuide-cta-bg" style="background-image:url({{ Image(post.itinerary_banner_image).src }});">
+				</div>
+			{% else %}
+				<div class="u-bgImage u-absolute100 gardenGuide-cta-bg" style="background-image:url({{ theme.link }}/images/itinerary-banner-default-img.jpg);">
+				</div>
+			{% endif %}
+			<div class="gardenGuide-cta-pink u-absolute100"></div>
+			<div class="container">
+				<div class="row">
+					{% if post.get_field('itinerary_file') %}
+						<div class="col-md-6 col-sm-6 gardenGuide-cta-itnerary gardenGuide-cta-col u-center">
+							<a href="{{ post.get_field('itinerary_file') }}" class="btn btn--whitePink" target="_blank">DOWNLOAD YOUR ITINERARY</a>				 
+						</div>
+					{% endif %}
+					<div class="{% if post.get_field('itinerary_file') %}col-md-6 col-sm-6{% else %} col-md-10 col-md-offset-1 gardenGuide-cta-col--noBorder {% endif %} gardenGuide-cta-col">
+						<div class="row">
+							<div class="col-md-6 u-center">
+								<h4 class="u-textWhite gardenGuide-cta-choose">Choose a different path.</h4>
+							</div>
+							<div class="col-md-6 u-center">
+								<a href="/garden-guide/" class="btn btn--whitePink">Start Over</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{% endif %}
+	
+	
+{% endblock %}

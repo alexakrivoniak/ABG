@@ -1,0 +1,85 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<section class="subpageBanner u-bgImage js-header-blur-img" style="background-image:url({{ Image(search_banner_image).src }});" data-section-img="{{ Image(search_banner_image).src }}"></section>
+<section class="subpageMain u-bgGreen">
+	<div class="container">
+		<div class="subpageMain-wrapper u-bgWhite">
+			<h1 class="u-textGreen">{{ title }}</h1>
+			<div class="subpageMain-content generalContent u-textGreen u-largeP">
+				{% if posts %}
+					<div class="row whiteBlocks-flex row--noMargin">
+						{% for item in posts %}
+							<div class="whiteBlock-col">
+								<div class="whiteBlock">
+									{% if TimberImage(item.thumbnail).src %}
+										<a href="{{ item.link }}"><div class="whiteBlock-image u-bgImage" style="background-image:url({{ TimberImage(item.thumbnail).src }});"></div></a>
+									{% endif %}
+									<div class="whiteBlock-content">
+										<h4 class="u-textGreen u-textUpper u-textCon">
+											{% if item.type.labels.name == 'Employments' %}
+												Employment
+											{% else %}
+												{{ item.type.labels.name }}
+											{% endif %}
+										</h4>
+										{% if item.title %}
+											<h3 class="u-textGreen">{{ item.title }}</h3>
+										{% endif %}
+
+										{% if item.type == 'tribe_events' %}
+											{% set event_start_date = function('tribe_get_start_date', item.ID, false, 'F d, Y', null) %}
+											{% set event_end_date = function('tribe_get_end_date', item.ID, false, 'F d, Y', null) %}
+											{% if event_start_date == event_end_date %}
+												<p class="u-textGreen u-textReg whiteBlock-content-date">Date: {{ event_start_date }}</p>
+											{% else %}
+											<!-- time is F d g:i a -->
+												{% set event_start_date = function('tribe_get_start_date', item.ID, false, 'F d, Y', null) %}
+												{% set event_end_date = function('tribe_get_end_date', item.ID, false, 'F d, Y', null) %}
+												<p class="u-textGreen u-textReg whiteBlock-content-date">{{ event_start_date }} - {{ event_end_date }}</p>
+											{% endif %}
+										{% endif %}
+
+										{% if item.page_description %}
+											<div class="whiteBlock-content-wrapper u-textGreen u-largeP generalContent">{{ item.page_description }}</div>
+										{% endif %}
+										<a href="{{ item.link }}" class="btn">Learn More</a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+
+						<div class="tool-pagination">
+						    {% if  pagination.prev %}
+						        <a href="{{ pagination.prev.link}}" class="prev {{ pagination.prev.link|length ? '' : 'invisible'}}">Prev</a>
+						    {% endif %}
+						    <ul class="pages">
+						        {% for page in  pagination.pages %}
+						            <li>
+						                {% if page.link %}
+						                    <a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+						                {% else %}
+						                    <span class="{{page.class}}">{{page.title}}</span>
+						                {% endif %}
+						            </li>
+						        {% endfor %}
+						    </ul>
+						    {% if pagination.next %}
+						        <a href="{{ pagination.next.link}}" class="next {{ pagination.next.link|length ? '' : 'invisible'}}">Next</a>
+						    {% endif %}
+						</div>
+
+					</div>
+				{% else %}
+					<h4 class="u-textGreen">No results were found.</h4>
+					<p>Navigate back to our homepage or search for another term.</p>
+					<a href="/" class="btn">Back to Home</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</section>
+	
+	
+{% endblock %}

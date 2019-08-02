@@ -1,0 +1,20 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+<section class="subpageBanner u-bgImage js-header-blur-img" style="background-image:url({{ Image(lost_page_banner_image).src }});" data-section-img="{{ Image(lost_page_banner_image).src }}"></section>
+<section class="subpageMain u-bgGreen">
+	<div class="container">
+		<div class="subpageMain-wrapper u-bgWhite">
+			<h1 class="u-textGreen">404: No Page Found</h1>
+			<div class="subpageMain-content generalContent u-textGreen u-largeP">
+				<h4 class="u-textGreen">Sorry, but the page you're looking for doesn't exist!</h4>
+				<p>Navigate back to our homepage or search for a term in our menu.</p>
+				<a href="/" class="btn">Back to Home</a>
+			</div>
+		</div>
+	</div>
+</section>
+	
+	
+{% endblock %}

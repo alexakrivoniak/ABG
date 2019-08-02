@@ -1,0 +1,150 @@
+{% extends "base.twig" %}
+
+{% block content %}
+	
+	<section class="gardenQuiz">
+		<div class="gardenQuiz-img js-header-blur-img u-bgImage u-absolute100" style="background-image:url({{ Image(post.quiz_background_image).src }});" data-section-img="{{ Image(post.quiz_background_image).src }}"></div>
+		<div class="container">
+			<div class="gardenQuiz-box u-blur-parent js-section-blur" data-section-img="{{ Image(post.quiz_background_image).src }}" id="gardenQuiz-stepOne">
+				<div class="u-blur-black"></div>
+				<div class="u-blur js-section-blur-item"></div>
+				<div class="u-blur-content">
+					<h1 class="u-textWhite">{{ post.quiz_headline }}</h1>
+					<h2 class="u-textWhite u-textReg">{{ post.quiz_subheadline }}</h2>
+
+					<div class="gardenQuiz-paths">
+						<div class="row">
+							{% for item in atl_guides %}
+								<div class="col-md-2 col-sm-4 col-xs-6 gardenQuiz-path u-center">
+									{% set atl_term = item.terms('type-of-garden-guide') | join(', ') %}
+									<button type="button" class="gardenQuiz-path-btn u-center" data-path="{{ item.title|replace({' ': '-'})|lower }}" data-path-link-atl="{{ item.link }}" 
+									{% for gvl in gvl_guides %}
+										{% set gvl_term = gvl.terms('type-of-garden-guide') | join(', ') %}
+										{% if gvl_term == atl_term %}
+											data-path-link-gvl="{{ gvl.link }}"
+										{% endif %}
+									{% endfor %}
+									>
+										<img src="{{ Image(item.icon).src }}" alt="{{ item.title }} Icon"> 
+										<p class="u-textWhite u-textUpper u-textBold">{{ item.title }}</p>
+									</button>
+								</div>
+							{% endfor %}
+						</div>
+						<div class="row">
+							<p class="gardenQuiz-error u-textPink u-textCon u-textUpper">Please select a path.</p>
+							<div class="u-textRight">
+								<button type="button" class="btn gardenQuiz-next">Next Step</button>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="gardenQuiz-box u-blur-parent js-section-blur" data-section-img="{{ Image(post.quiz_background_image).src }}" id="gardenQuiz-stepTwo">
+				<div class="u-blur-black"></div>
+				<div class="u-blur js-section-blur-item"></div>
+				<div class="u-blur-content">
+					<div class="row">
+						<div class="col-md-4 gardenQuiz-questionTwo-col">
+							<div class="gardenQuiz-question">
+								<h4 class="u-textWhite">{{ post.question_one }}</h4>
+								<ul class="gardenQuiz-choices gardenQuiz-choices--one">
+									<li class="radio">
+										<input type="radio" name="location" id="atlanta">
+									    <label for="atlanta">Atlanta</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="location" id="gainesville">
+									    <label for="gainesville">Gainesville</label>	    
+									    <div class="check"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4 gardenQuiz-questionTwo-col">
+							<div class="gardenQuiz-question">
+								<h4 class="u-textWhite">{{ post.question_two }}</h4>
+								<ul class="gardenQuiz-choices gardenQuiz-choices--two">
+									<li class="radio">
+										<input type="radio" name="day" id="tuesday">
+									    <label for="tuesday">Tuesday</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="day" id="wednesday">
+									    <label for="wednesday">Wednesday</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="day" id="thursday">
+									    <label for="thursday">Thursday</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="day" id="friday">
+									    <label for="friday">Friday</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="day" id="saturday">
+									    <label for="saturday">Saturday</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="day" id="sunday">
+									    <label for="sunday">Sunday</label>	    
+									    <div class="check"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-4 gardenQuiz-questionTwo-col">
+							<div class="gardenQuiz-question">
+								<h4 class="u-textWhite">{{ post.question_three }}</h4>
+								<ul class="gardenQuiz-choices gardenQuiz-choices--three">
+									<li class="radio">
+										<input type="radio" name="time" id="hour-or-less">
+									    <label for="hour-or-less">An Hour or Less</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="time" id="few-hours">
+									    <label for="few-hours">A Few Hours</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="time" id="whole-day">
+									    <label for="whole-day">A Whole Day</label>	    
+									    <div class="check"></div>
+									</li>
+									<li class="radio">
+										<input type="radio" name="time" id="after-hours">
+									    <label for="after-hours">After Hours</label>	    
+									    <div class="check"></div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col u-textLeft">
+							<p class="gardenQuiz-error u-textPink u-textCon u-textUpper">Please select a location.</p>
+						</div>
+						<div class="col u-textRight gardenQuiz-loading">
+							<img src="{{theme.link }}/images/loading.gif" alt="Loading">
+							<p class="u-textWhite">Your experience is loading...</p>
+						</div>
+						<div class="col u-textRight">
+							<button type="button" class="btn gardenQuiz-submit">{{ post.submit_button_text }}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+{% endblock %}

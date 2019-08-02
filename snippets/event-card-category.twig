@@ -1,0 +1,19 @@
+{% set cats = function('wp_get_post_terms', item.ID, 'tribe_events_cat') %}
+{% set string = '' %}
+{% for cat in cats %}
+	{% if cat.name == 'For Kids' or cat.name == 'Cocktails/Wine' or cat.name == 'Cooking/Food' or cat.name == 'Classes/Education' %}
+		{% set string = 'class' %}
+	{% elseif cat.name == 'Concert' or cat.name == 'Atlanta Event' or cat.name == 'Gainesville Event' %}
+		{% set string = 'buy' %}
+	{% endif %}
+{% endfor %}
+{% if string == 'class' %}
+	Sign Up
+{% elseif string == 'buy' %}
+	Buy Tickets
+{% else %}
+	Explore
+{% endif %}
+<a {% if item.event_link %}href="{{ item.event_link }}"{% else %} href="{{ function('get_permalink', item.ID) }}" {% endif %} class="{% if is_home == 'true' %}homeEvent-btn{% else %}eventCard-btn{% endif %} {% if is_white == 'true' %}u-textWhite {% else %}u-textGreen {% endif %}u-textCon u-textUpper">
+		Learn More
+	</a>
