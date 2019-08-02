@@ -236,7 +236,7 @@ class StarterSite extends TimberSite {
 
 		wp_enqueue_script( 'vender-parallax', get_template_directory_uri() . '/js/vendor/parallax.min.js', array(), $vernum, true );
 
-		wp_enqueue_script( 'maps', '//maps.googleapis.com/maps/api/js?key=AIzaSyD1wWUkkGelkZxLN2lCPMcevgX4ISklAYo', array(), $vernum, true );
+		wp_enqueue_script( 'maps', '//maps.googleapis.com/maps/api/js?key=', array(), $vernum, true );
 
 		wp_enqueue_script( 'leaves', get_template_directory_uri() . '/js/leaves.js', array(), $vernum, true );
         wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), $vernum, true );
