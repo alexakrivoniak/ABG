@@ -1,0 +1,69 @@
+<section class="homeEvents js-home-section js-section-blur u-bgImage" style="background-image:url({{ Image(section.background_image).src }});" data-section-img="{{ Image(section.background_image).src }}">
+	<div class="container u-relative">
+		<div class="row homeSection-wrapper u-vh100">
+			<div class="homeEvents-box home-blurBox u-blur-parent">
+				<div class="u-blur-black"></div>
+				<div class="u-blur js-section-blur-item js-section-blur-item--half">
+					<div class="u-absolute100 u-imageBg"></div>
+					<div class="u-absolute100 u-imageBg"></div>
+				</div>
+				<div class="home-blurBox-content u-blur-content">
+					<h2 class="u-textWhite u-textShadow">{{ section.box_headline }}</h2>
+					<p class="u-textWhite">{{ section.box_description }}</p>
+					{% if section.box_button_text %}
+						<a href="{{ section.box_button_link }}" class="btn">{{ section.box_button_text }}</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="homeEvents-boxes u-blur-parent">
+			<div class="homeEvents-boxes-wrapper">
+				<div class="u-blur-black"></div>
+				<div class="u-absolute100 u-blur js-section-blur-item"></div>
+				<div class="row u-blur-content row--noMargin">
+					<div class="homeEvents-boxes-swiper swiper-container">
+						<div class="swiper-wrapper">
+							{% for item in events %}
+								{% set loopLength = loop.length %}
+								{% if item.enter_custom_event_content %}
+									<div class="homeEvent 
+												{% if loopLength == 4 %} 
+													homeEvent--4
+												{% elseif loopLength == 3 %} 
+													homeEvent--3
+												{% elseif loopLength == 2 %} 
+													homeEvent--2
+												{% else %}
+													homeEvent--1
+												{% endif %}
+										u-relative swiper-slide">
+										<div class="homeEvent-date">
+											<p class="u-textWhite u-textCon">{{ item.home_event_date }}</p>
+										</div>
+										<div class="homeEvent-content">
+											<a href="{{ item.home_event_link }}"><h4 class="u-textWhite">{{ item.home_event_title }}</h4></a>
+
+											<p class="u-textWhite u-textCon u-textUpper homeEvent-content-location">{{ item.home_event_location }}</p>
+
+											<p class="u-textWhite u-textReg">{{ item.home_event_description|length > 80 ? item.home_event_description|slice(0, 80) ~ '...' : item.home_event_description }}</p>
+										</div>
+										<a href="{{ item.home_event_link }}" class="homeEvent-btn u-textWhite u-textCon u-textUpper">Learn More</a>
+									</div>
+								{% else %}
+									{% for item in item.home_event %}
+										{% include 'snippets/event-card.twig' with {'is_white':'true', 'is_home':'true', 'loop_length':loopLength} %}
+									{% endfor %}
+								{% endif %}
+							{% endfor %}
+						</div><!-- end of swiper wrapper -->
+					</div><!-- end of swiper-container -->
+					<div class="swiper-pagination swiper-pagination-white homeEvents-boxes-pagination hidden-md hidden-lg"></div>
+				</div> <!-- end blur-content -->
+			</div><!-- end of homeEvent-boxes-wrapper -->
+		</div> <!-- end homeEvent-boxes -->
+
+		<div class="u-center homeEvents-calendar-btn">
+			<a href="/calendar/category/atlanta/" class="btn">View Atlanta Events Calendar</a>
+		</div>
+	</div>
+</section>

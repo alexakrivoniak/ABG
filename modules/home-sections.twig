@@ -1,0 +1,20 @@
+{% for section in post.get_field('homepage_sections') %}
+
+	<!-- Home Events Section --> 
+	{% if section.acf_fc_layout == "home_events_section" %}
+		{% include "modules/home-events-section.twig" %}
+
+	<!-- Home Image Section --> 
+	{% elseif section.acf_fc_layout == "home_image_section" %}
+		{% include "modules/home-image-section.twig" %}
+
+	<!-- White Touts --> 
+	{% elseif section.acf_fc_layout == "white_touts_section" %}
+		{% include "modules/white-tout-section.twig" with {home: 'true'} %}
+
+	<!-- Insta Section --> 
+	{% elseif section.acf_fc_layout == "instagram_section" %}
+		{% include "modules/insta-section.twig" %}
+
+	{% endif %}
+{% endfor %}

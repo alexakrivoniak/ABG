@@ -1,0 +1,23 @@
+<section class="accordion u-bgWhite">
+	<div class="container">
+		<div class="accordion-wrapper">
+			{% if section.accordion_section_title %}
+				<div class="row">
+					<h2 class="u-textGreen">{{ section.accordion_section_title }}</h2>
+				</div>
+			{% endif %}
+			<div class="row">
+				{% for item in section.accordion %}
+					<div class="accordion-item">
+						<div class="accordion-header js-accordion-header">
+							<h3 class="u-textGreen">{{ item.title }}</h3>
+						</div>
+						<div class="accordion-content js-accordion-content generalContent">
+							{{ item.content }}
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>

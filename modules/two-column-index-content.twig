@@ -1,0 +1,52 @@
+<section class="indexContent u-bgWhite">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="indexContent-col generalContent">
+					{% if section.column_one_image %}
+						<div class="indexContent-img u-bgImage" style="background-image: url({{ Image(section.column_one_image).src }});"></div>
+					{% endif %}
+					{% if section.column_one_title %}
+						<h3 class="u-textGreen js-strip-br">{{ section.column_one_title }}</h3>
+					{% endif %}
+					{% if section.column_one_description %}
+						<p class="u-textGreen u-largeP">{{ section.column_one_description }}</p>
+					{% endif %}
+					{% if section.column_one_button_text %}
+						<a href="{{ section.column_one_button_link }}" class="btn">{{ section.column_one_button_text }}</a>
+					{% endif %}
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="indexContent-col generalContent">
+					{% if section.column_two_title %}
+						<div class="indexContent-col-content">
+							{% if section.column_two_image %}
+								<div class="indexContent-img u-bgImage" style="background-image: url({{ Image(section.column_two_image).src }});"></div>
+							{% endif %}
+							{% if section.column_two_title %}
+								<h3 class="u-textGreen">{{ section.column_two_title }}</h3>
+							{% endif %}
+							{% if section.column_two_description %}
+								<p class="u-textGreen u-largeP">{{ section.column_two_description }}</p>
+							{% endif %}
+							{% if section.column_two_button_text %}
+								<a href="{{ section.column_two_button_link }}" class="btn indexContent-col-content-btn">{{ section.column_two_button_text }}</a>
+							{% endif %}
+						</div>
+					{% endif %}
+					{% if section.column_two_events %}
+						<div class="indexContent-events indexContent-events-swiper swiper-container">
+							<div class="swiper-wrapper">
+								{% for item in events %}
+									{% include 'snippets/event-card.twig' %}
+								{% endfor %}
+							</div>
+						</div>
+						<div class="swiper-pagination swiper-pagination--green indexContent-events-pagination hidden-md hidden-lg"></div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

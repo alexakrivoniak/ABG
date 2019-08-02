@@ -1,0 +1,62 @@
+{% if dynamic_posts %}
+<section class="u-bgWhite whiteBlocks">
+	<div class="container">
+		<div class="whiteBlocks-wrapper">
+			{% if section.dynamic_posts_title %}
+				<div class="row row--noMargin">
+					<h2 class="u-textGreen whiteBlocks-title">
+						{% if section.dynamic_posts_title == 'Employments' %}
+							Employment
+						{% else %}
+							{{ section.dynamic_posts_title }}
+						{% endif %}
+					</h2>
+				</div>
+			{% endif %}
+			<div class="row whiteBlocks-flex row--noMargin">
+				{% for item in dynamic_posts %}
+					<div class="whiteBlock-col">
+						<div class="whiteBlock">
+							{% if TimberImage(item.thumbnail).src %}
+								<div class="whiteBlock-image u-bgImage" style="background-image:url({{ TimberImage(item.thumbnail).src }});"></div>
+							{% endif %}
+							<div class="whiteBlock-content">
+								{% if item.title %}
+									<h3 class="u-textGreen">{{ item.title }}</h3>
+								{% endif %}
+
+								{% if dynamic_posts_type == 'tribe_events' %}
+									{% set event_start_date = function('tribe_get_start_date', item.ID, false, 'F d', null) %}
+									{% set event_end_date = function('tribe_get_end_date', item.ID, false, 'F d', null) %}
+									{% if event_start_date == event_end_date %}
+										<p class="u-textGreen u-textCon whiteBlock-content-date">{{ event_start_date }}</p>
+									{% else %}
+									<!-- time is F d g:i a -->
+										{% set event_start_date = function('tribe_get_start_date', item.ID, false, 'F d', null) %}
+										{% set event_end_date = function('tribe_get_end_date', item.ID, false, 'F d', null) %}
+										<p class="u-textGreen whiteBlock-content-date u-textCon">{{ event_start_date }} - {{ event_end_date }}</p>
+									{% endif %}
+
+									{% set location = function('wp_get_post_terms', item.ID, 'city') %}
+									{% for term in location %}
+										<p class="u-textGreen u-textCon u-textUpper eventCard-content-location whiteBlock-content-location">{{ term.name }}</p>
+									{% endfor %}
+
+									{% if item.event_description %}
+										<p class="u-textGreen u-textReg">{{ item.event_description|length > 80 ? item.event_description|slice(0, 80) ~ '...' : item.event_description }}</p>
+									{% endif %}
+								{% endif %}
+
+								{% if item.page_description %}
+									<div class="whiteBlock-content-wrapper u-textGreen u-largeP generalContent">{{ item.page_description }}</div>
+								{% endif %}
+								<a href="{{ item.link }}" class="btn">Learn More</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}

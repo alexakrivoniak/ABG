@@ -1,0 +1,23 @@
+<section class="homeImage js-home-section js-section-blur u-bgImage" style="background-image:url({{ Image(section.home_image_background).src }});" data-section-img="{{ Image(section.home_image_background).src }}" id="{{ section.home_image_headline|lower|replace('&', 'and')|replace(' ', '-') }}">
+	<div class="container u-relative">
+		<div class="row homeSection-wrapper u-vh100 u-relative">
+			<div class="homeImage-content u-verticalCenter">
+				<h1>{{ section.home_image_headline }}</h1>
+				{% if section.home_image_button_text %}
+					<a href="{{ section.home_image_button_link }}" class="btn">{{ section.home_image_button_text }}</a>
+				{% endif %}
+			</div>
+			<div class="homeImage-box home-blurBox u-blur-parent">
+				<div class="u-blur-black"></div>
+				<div class="u-blur js-section-blur-item"></div>
+				<div class="home-blurBox-content u-blur-content">
+					<h2 class="u-textWhite u-textShadow">{{ section.box_headline }}</h2>
+					<p class="u-textWhite">{{ section.box_description }}</p>
+					{% if section.box_button_text %}
+						<a href="{{ section.box_button_link }}" class="btn">{{ section.box_button_text }}</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

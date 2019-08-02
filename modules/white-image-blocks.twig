@@ -1,0 +1,26 @@
+<section class="u-bgWhite whiteBlocks">
+	<div class="container">
+		<div class="whiteBlocks-wrapper">
+				{% for item in section.white_image_blocks %}
+					<div class="whiteBlock-col {% if loop.length == 1 %} whiteBlock-col--1 {% elseif loop.length == 2 %} whiteBlock-col--2 {% else %} whiteBlock-col--3 {% endif %}">
+						<div class="whiteBlock">
+							{% if item.white_block_image %}
+								<div class="whiteBlock-image u-bgImage" style="background-image:url({{ Image(item.white_block_image).src }});"></div>
+							{% endif %}
+							<div class="whiteBlock-content">
+								{% if item.white_block_title %}
+									<h3 class="u-textGreen">{{ item.white_block_title }}</h3>
+								{% endif %}
+								{% if item.white_block_description %}
+									<div class="whiteBlock-content-wrapper u-textGreen u-largeP generalContent">{{ item.white_block_description }}</div>
+								{% endif %}
+								{% if item.white_block_button_text %}
+									<a href="{{ item.white_block_button_link }}" class="btn">{{ item.white_block_button_text }}</a>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+</section>

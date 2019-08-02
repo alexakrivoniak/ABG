@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="17px" viewBox="0 0 12 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.1 (57501) - http://www.bohemiancoding.com/sketch -->
+    <title>Page 1</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="HOMEPAGE" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-399.000000, -1827.000000)" fill="#FFFFFF" id="Section-2">
+            <g transform="translate(0.000000, 855.000000)">
+                <g id="Events" transform="translate(40.000000, 840.000000)">
+                    <g id="Event-01" transform="translate(335.000000, 0.000000)">
+                        <g id="Group-5" transform="translate(24.711246, 132.132203)">
+                            <path d="M5.64675595,-8.52651283e-14 C2.51588381,-8.52651283e-14 0,2.50572849 0,5.62616691 C0,8.74562336 5.64675595,16.3664061 5.64675595,16.3664061 C5.64675595,16.3664061 11.2935119,8.74562336 11.2935119,5.62616691 C11.2935119,2.50572849 8.7776281,-8.52651283e-14 5.64675595,-8.52651283e-14 Z M5.64675595,8.18271208 C4.20981204,8.18271208 3.07986951,7.05787148 3.07986951,5.62518494 C3.07986951,4.19348037 4.20882648,3.06765781 5.64675595,3.06765781 C7.08369987,3.06765781 8.2136424,4.19249841 8.2136424,5.62518494 C8.2136424,7.05784693 7.08372451,8.18271208 5.64675595,8.18271208 Z" id="Page-1"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

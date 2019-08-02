@@ -1,0 +1,42 @@
+<section class="imageSlider">
+	<div class="imageSlider-wrapper">
+		<div class="imageSlider-swiper">
+			<div class="imageSlider-swiper-wrapper swiper-wrapper">
+
+				{% for item in section.image_slides %}
+					<div class="imadeSlider-slide swiper-slide {% if section.should_captions_be_aligned_left %}imageSlider-slide--leftCaption {% endif %}">
+						<div class="imageSlider-img-bg u-bgImage u-absolute100 js-slider-blur" style="background-image:url({{ Image(item.image).src }});" data-img="{{ Image(item.image).src }}"></div>
+						<div class="container imageSlider-container">
+							<div class="imageSlider-caption u-blur-parent {% if item.include_caption_box %} {% else %} imageSlider-caption--no-content visible-xs visible-sm {% endif %}">
+								{% if item.include_caption_box %}
+									<div class="u-blur-black"></div>
+									<div class="u-blur js-slider-slide-blur"></div>
+									<div class="imageSlider-caption-content u-blur-content">
+										{% if item.caption_title %}<h3 class="u-textWhite">{{ item.caption_title }}</h3>{% endif %}
+										{% if item.caption_description %}<p class="u-textWhite u-largeP">{{ item.caption_description }}</p>{% endif %}
+										{% if item.button_text %}
+											<a href="{{ item.button_link }}" class="btn">{{ item.button_text }}</a>
+										{% endif %}
+									</div>
+								{% endif %}
+							</div>
+						</div>
+						{% if garden_guide == true %}
+						<div class="imageSlider-gardenGuide-path imageSlider-gardenGuide-path--{{loop.index }}"></div>
+						{% endif %}
+					</div>
+				{% endfor %}
+
+			</div>
+			{% set image_slides_length = 0 %}
+			{% for item in section.image_slides %}
+				{% set image_slides_length = loop.length %}
+			{% endfor %}
+			{% if image_slides_length > 1 %}
+					<div class="imageSlider-pagination swiper-pagination swiper-pagination-white {% if section.should_captions_be_aligned_left %} imageSlider-pagination--leftCaption{% endif %}"></div>
+					<div class="imageSlider-next swiper-button-next swiper-button-white"></div>
+					<div class="imageSlider-prev swiper-button-prev swiper-button-white"></div>
+			{% endif %}
+		</div>
+	</div>
+</section>

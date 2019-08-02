@@ -1,0 +1,7 @@
+_::-webkit-:not(:root:root) p, .safari_only p,
+_::-webkit-full-page-media p, _:future p, :root .safari_only p {
+  letter-spacing: -0.06em; }
+
+_::-webkit-:not(:root:root) .generalContent p, .safari_only .generalContent p,
+_::-webkit-full-page-media .generalContent p, _:future .generalContent p, :root .safari_only .generalContent p {
+  letter-spacing: -0.06em; }

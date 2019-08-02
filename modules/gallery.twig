@@ -1,0 +1,36 @@
+{% if section.gallery_images %}
+	<section class="instaSection js-section-blur u-bgImage" data-section-img="{{ Image(section.gallery_main_image).src }}">
+		<div class="instaSection-wrapper u-vh100 u-relative">
+			<div class="instaSection-bg u-bgImage u-absolute100" style="background-image:url({{ Image(section.gallery_main_image).src }});">
+			</div>
+			<div class="instaSection-blocks instaSection-blocks-swiper">
+				<!-- <div class="swiper-wrapper"> -->
+					{% for item in section.gallery_images %}
+						<div class="swiper-slide instaSection-block u-bgImage" style="background-image:url({{ Image(item.image).src }});">
+						</div>
+					{% endfor %}
+				<!-- </div> -->
+				<div class="swiper-button-prev swiper-button-white visible-xs"></div>
+	    		<div class="swiper-button-next swiper-button-white visible-xs"></div>
+			</div>
+
+			{% if section.include_content_box_over_main_image %}
+				<div class="container u-relative">
+					<div class="row homeSection-wrapper u-vh100 u-relative">
+						<div class="instaSection-blurBox u-blur-parent">
+							<div class="u-blur-black"></div>
+							<div class="u-blur js-section-blur-item"></div>
+							<div class="home-blurBox-content u-blur-content">
+								<h2 class="u-textWhite u-textShadow">{{ section.box_headline }}</h2>
+								<p class="u-textWhite">{{ section.box_content }}</p>
+								{% if section.box_button_text %}
+									<a href="{{ section.box_button_link }}" class="btn">{{ section.box_button_text }}</a>
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</section>
+{% endif %}

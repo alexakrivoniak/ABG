@@ -1,0 +1,31 @@
+{% for section in post.get_field('subpage_modules') %}
+	<!-- Two Column Index Content Section --> 
+	{% if section.acf_fc_layout == "two_column_index_content" %}
+		{% include "modules/two-column-index-content.twig" %}
+
+	<!-- Green Blocks Section --> 
+	{% elseif section.acf_fc_layout == "green_blocks" %}
+		{% include "modules/green-blocks.twig" %}
+
+	<!-- Image Slider Section --> 
+	{% elseif section.acf_fc_layout == "image_slider" %}
+		{% include "modules/image-slider.twig" %}
+
+	<!-- White Image Blocks Section --> 
+	{% elseif section.acf_fc_layout == "white_image_blocks" %}
+		{% include "modules/white-image-blocks.twig" %}
+
+	<!-- Accordion Section --> 
+	{% elseif section.acf_fc_layout == "accordion" %}
+		{% include "modules/accordion.twig" %}
+
+	<!-- Dynamic Posts Section --> 
+	{% elseif section.acf_fc_layout == "dynamic_posts" %}
+		{% include "modules/dynamic-posts.twig" %}
+
+	<!-- Gallery Section --> 
+	{% elseif section.acf_fc_layout == "gallery" %}
+		{% include "modules/gallery.twig" %}
+
+	{% endif %}
+{% endfor %}

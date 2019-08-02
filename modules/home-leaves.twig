@@ -1,0 +1,16 @@
+<section class="homeLeaves u-absolute100 js-leaves-animation homeLeaves--{{ post.homepage_theme }}">
+	{% if post.homepage_theme == 'winter' %}
+		<div class="homeLeaves-section homeLeaves-section--winter js-leaves-section" data-section="section1">
+			<div class="homeLeaves-item homeLeaves-item--winter js-home-leaf homeLeaves-item--left u-bgImage" data-img-src="{{ theme.link }}/images/"></div>
+		</div>
+	{% elseif post.homepage_theme == 'fall' %}
+		<div class="homeLeaves-section homeLeaves-section--fall js-leaves-section" data-section="section1">
+			<div class="homeLeaves-item homeLeaves-item--fall js-home-leaf homeLeaves-item--left u-bgImage" data-img-src="{{ theme.link }}/images/"></div>
+		</div>
+	{% else %}
+		<div class="homeLeaves-section js-leaves-section" data-section="section1">
+			<div class="example-petal"></div>
+			<div class="homeLeaves-item js-home-leaf homeLeaves-item--left u-bgImage" data-img-src="{{ theme.link }}/images/"></div>
+		</div>
+	{% endif %}
+</section>

@@ -1,0 +1,23 @@
+{% if post.include_alert %}
+	<div class="alert">
+		<div class="alert-container u-bgGreen">
+			<div class="container">
+				<div class="row">
+					<div class="col col-md-12 u-relative">
+						<div class="alert-content">
+							{% if post.alert_headline %}
+								<h4 class="u-textWhite">{{ post.alert_headline }}</h4>
+							{% endif %}
+							{% if post.alert_content %}
+								<div class="generalContent u-textWhite">
+									{{ post.alert_content }}
+								</div>
+							{% endif %}
+							<button type="button" class="alert-close"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endif %}

@@ -1,0 +1,118 @@
+<header class="header" >
+	{% block header %}
+	<div class="container">
+		<div class="row">
+			<div class="header-col col-md-4 col-sm-4 col-xs-9">
+				<a class="header-logo-link u-blur-parent" href="{{site.url}}" rel="home">
+					<div class="u-blur-content">
+						<img src="{{ logo }}" alt="header-logo" class="hidden-xs">
+						<img src="{{ Image(header_logo_mobile).src }}" alt="header-logo" class="visible-xs">
+					</div>
+					<div class="u-blur-black"></div>
+					<div class="u-blur js-header-blur"></div>
+				</a>
+			</div>
+			<div class="header-col col-md-8 col-sm-8 col-xs-3">
+				<div class="utility hidden-sm hidden-xs">
+					<div class="row">
+						<div class="col-md-offset-1 col-md-3 col-lg-offset-1 col-lg-3 utility-info-col u-textRight">
+							<div class="utility-hours hidden">
+								<p class="u-textWhite u-textUpper">Closed Today</p>
+							</div>
+							<div class="utility-weather">
+								<div id="weather"></div>
+								<!-- <span class="utility-weather-icon"><img src="{{ theme.link }}/images/icon-cloud.svg"></span>
+								<span class="utility-weather-temp u-textWhite">74&#176;</span> -->
+							</div>
+						</div>
+						<div class="col-md-8 col-lg-8">
+							<div class="utility-nav u-relative u-blur-parent">
+								<div class="u-blur-black"></div>
+								<div class="u-blur js-header-blur"></div>
+								<div class="u-blur-content">
+									{% include "menu.twig" with {'menu': sub_header.get_items} %}
+									{% if gainesville_link %}
+										<a href="{{ gainesville_link }}" class="utility-nav-link">Gainesville</a>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mainNav u-textRight">
+					<div class="mainNav-wrapper">
+						{% if header_menu_button %}
+							<div class="mainNav-custom u-relative u-blur-parent hidden-xs">
+								<div class="u-blur-black"></div>
+								<div class="u-blur js-header-blur"></div>
+								<div class="u-blur-content">
+									<a href="{{ header_menu_button_link }}" class="u-textWhite u-textUpper u-relative">{{ header_menu_button }}</a>
+								</div>
+							</div>
+						{% endif %}
+						<div class="mainNav-search u-bgGreen">
+							<button type="button" class="u-textWhite u-center"><img src="{{ theme.link }}/images/icon-search.svg" alt="Search"></button>
+						</div>
+							<div class="mainNav-searchBox">
+								<form role="search" method="get" id="searchform" action="{{site.url}}">
+									<input type="text" value="" name="s" id="s" placeholder="{{ __('Search', 'timber-foundation')|e }}">
+									<input type="submit" id="searchsubmit" value="{{ __('', 'timber-foundation')|e }}" class="button postfix">
+								</form>
+							</div>
+						<div class="mainNav-btn u-bgPink">
+							<button type="button" class="u-textWhite u-center"></button>
+						</div>
+					</div>
+				</div>
+
+				<div class="menu">
+					<!-- <div class="u-blur-black"></div>
+					<div class="u-blur js-header-blur"></div>
+					<div class="u-blur-content"> -->
+						<nav id="nav-main" class="nav-main" role="navigation">
+							{% include "menu.twig" with {'menu': main_header.get_items, 'header' : true} %}
+						</nav><!-- #nav -->
+						<div class="menu-subNav">
+							{% include "menu.twig" with {'menu': inside_nav.get_items} %}
+						</div>
+						<div class="menu-connect">
+							<div class="menu-newsletter">
+								{% if mailing_list_title %}<h4 class="u-textWhite">{{ mailing_list_title }}</h4>{% endif %}
+								<!-- <div class="menu-newsletter-input">
+									<input type="email" name="email" placeholder="Enter email address">
+									<button type="submit" class="menu-newsletter-submit"></button>
+								</div> -->
+								{% include 'snippets/newsletter-form.twig' %}
+							</div>
+							<div class="menu-social">
+								{% if company_instagram %}<a href="{{ company_instagram }}" class="menu-social-link" target="_blank">
+									<div class="menu-social-icon menu-social-icon--instagram">
+									</div>
+									</a>{% endif %}
+								{% if company_twitter %}<a href="{{ company_twitter }}" class="menu-social-link" target="_blank">
+									<div class="menu-social-icon menu-social-icon--twitter">
+									</div>
+									</a>{% endif %}
+								{% if company_pinterest %}<a href="{{ company_pinterest }}" class="menu-social-link" target="_blank">
+									<div class="menu-social-icon menu-social-icon--pinterest">
+									</div>
+									</a>{% endif %}
+								{% if company_facebook %}<a href="{{ company_facebook }}" class="menu-social-link" target="_blank">
+									<div class="menu-social-icon menu-social-icon--facebook">
+									</div>
+									</a>{% endif %}
+								{% if company_youtube %}<a href="{{ company_youtube }}" class="menu-social-link" target="_blank">
+									<div class="menu-social-icon menu-social-icon--youtube">
+									</div>
+									</a>{% endif %}
+							</div>
+						</div>
+					<!-- </div> -->
+				</div><!-- end menu -->
+
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+</header>
